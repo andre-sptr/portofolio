@@ -15,7 +15,7 @@ const projects = [
     tech: ["ESP32", "Figma", "Firebase"],
     gradient: "from-primary/20 to-primary/5",
     viewUrl: "",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: ""
   },
   {
     title: "WhatsApp AI ChatBot",
@@ -24,7 +24,7 @@ const projects = [
     tech: ["n8n", "GeminiAI", "WhatsApp"],
     gradient: "from-secondary/20 to-secondary/5",
     viewUrl: "https://wa.me/6287790596246",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: ""
   },
   {
     title: "Sistem Informasi Kedisiplinan",
@@ -32,8 +32,8 @@ const projects = [
     image: projectImageKedisiplinan,
     tech: ["CI4", "Bootsrap 5", "MySQL"],
     gradient: "from-primary/20 to-secondary/5",
-    viewUrl: "",
-    codeUrl: "https://github.com/andre-sptr/"
+    viewUrl: "https://binasiswa.icsiak.sch.id/",
+    codeUrl: ""
   },
   {
     title: "HarLah 10 Tahun MAN IC Siak",
@@ -42,7 +42,7 @@ const projects = [
     tech: ["React", "Bootsrap 5", "Node.js"],
     gradient: "from-secondary/20 to-secondary/10",
     viewUrl: "https://harlah.flamyheart.site/",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: "https://github.com/andre-sptr/harlah"
   },
   {
     title: "AI Assistant MAN IC Siak",
@@ -51,7 +51,7 @@ const projects = [
     tech: ["React", "Bootstrap 5", "Node.js"],
     gradient: "from-primary/20 to-secondary/10",
     viewUrl: "https://ai.flamyheart.site/",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: "https://github.com/andre-sptr/ai-agent"
   },
   {
     title: "PDF Tools",
@@ -60,7 +60,7 @@ const projects = [
     tech: ["React", "Bootsrap 5", "Node.js"],
     gradient: "from-primary/20 to-secondary/10",
     viewUrl: "https://pdf.flamyheart.site/",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: "https://github.com/andre-sptr/pdf-tools"
   },
 ];
 
