@@ -7,6 +7,7 @@ import projectImageHarLah from "/project-harlah.png";
 import projectImagePDFTools from "/project-pdf.png";
 import projectImageAI from "/project-ai.png";
 import projectZI from "/project-zi.png";
+import projectAetherNet from "/project-aethernet.png";
 
 const projects = [
   {
@@ -71,6 +72,15 @@ const projects = [
     gradient: "from-primary/20 to-secondary/5",
     viewUrl: "https://zi.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/zi"
+  },
+  {
+    title: "AetherNet",
+    description: "Visualisasi real-time koneksi antar node dalam jaringan AetherNet.",
+    image: projectAetherNet,
+    tech: ["React", "Bootsrap 5", "Node.js"],
+    gradient: "from-primary/20 to-secondary/10",
+    viewUrl: "https://aethernet.flamyheart.site/",
+    codeUrl: "https://github.com/andre-sptr/aethernet"
   },
 ];
 
