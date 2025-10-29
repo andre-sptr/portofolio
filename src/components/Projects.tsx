@@ -8,6 +8,8 @@ import projectImagePDFTools from "/project-pdf.png";
 import projectImageAI from "/project-ai.png";
 import projectZI from "/project-zi.png";
 import projectAetherNet from "/project-aethernet.png";
+import projectFile from "/project-file.png";
+import projectEduForum from "/project-eduforum.png";
 
 const projects = [
   {
@@ -48,7 +50,7 @@ const projects = [
   },
   {
     title: "AI Assistant MAN IC Siak",
-    description: "Asisten AI yang dirancang untuk mendukung layanan dan administrasi di MAN Insan Cendekia Siak.",
+    description: "Asisten AI yang dirancang untuk mendukung layanan dan administrasi di MAN Insan Cendekia Siak",
     image: projectImageAI,
     tech: ["React", "Bootstrap 5", "Node.js"],
     gradient: "from-primary/20 to-secondary/5",
@@ -66,7 +68,7 @@ const projects = [
   },
   {
     title: "Zona Integritas",
-    description: "Portal layanan digital terintegrasi untuk seluruh civitas akademika MAN Insan Cendekia Siak.",
+    description: "Portal layanan digital terintegrasi untuk seluruh civitas akademika MAN Insan Cendekia Siak",
     image: projectZI,
     tech: ["React", "Bootsrap 5", "Node.js"],
     gradient: "from-primary/20 to-secondary/5",
@@ -75,12 +77,30 @@ const projects = [
   },
   {
     title: "AetherNet",
-    description: "Visualisasi real-time koneksi antar node dalam jaringan AetherNet.",
+    description: "Visualisasi real-time koneksi antar node dalam jaringan AetherNet",
     image: projectAetherNet,
     tech: ["React", "Bootsrap 5", "Node.js"],
     gradient: "from-primary/20 to-secondary/10",
     viewUrl: "https://aethernet.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/aethernet"
+  },
+  {
+    title: "CloudShare - File Hosting",
+    description: "Upload, share, and store your files with ease. Modern secure cloud storage platform for images, videos, and documents",
+    image: projectFile,
+    tech: ["React", "Bootsrap 5", "Node.js"],
+    gradient: "from-primary/20 to-secondary/5",
+    viewUrl: "https://file.flamyheart.site/",
+    codeUrl: "https://github.com/andre-sptr/file"
+  },
+  {
+    title: "EduForum - MAN IC Siak",
+    description: "Platform sosial edukatif untuk siswa, guru, dan alumni MAN IC Siak",
+    image: projectEduForum,
+    tech: ["React", "Bootsrap 5", "Node.js"],
+    gradient: "from-primary/20 to-secondary/10",
+    viewUrl: "https://eduforum.flamyheart.site/",
+    codeUrl: "https://github.com/andre-sptr/eduforum"
   },
 ];
 
