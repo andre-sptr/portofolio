@@ -6,6 +6,10 @@ import projectImageKedisiplinan from "/project-web.png";
 import projectImageHarLah from "/project-harlah.png";
 import projectImagePDFTools from "/project-pdf.png";
 import projectImageAI from "/project-ai.png";
+import projectZI from "/project-zi.png";
+import projectAetherNet from "/project-aethernet.png";
+import projectFile from "/project-file.png";
+import projectEduForum from "/project-eduforum.png";
 
 const projects = [
   {
@@ -15,16 +19,16 @@ const projects = [
     tech: ["ESP32", "Figma", "Firebase"],
     gradient: "from-primary/20 to-primary/5",
     viewUrl: "",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: ""
   },
   {
     title: "WhatsApp AI ChatBot",
     description: "Workflow chatbot WhatsApp otomatis yang ditenagai oleh Gemini AI untuk menjawab pertanyaan dan membuat konten visual",
     image: projectImageChatBot,
     tech: ["n8n", "GeminiAI", "WhatsApp"],
-    gradient: "from-secondary/20 to-secondary/5",
+    gradient: "from-secondary/20 to-secondary/10",
     viewUrl: "https://wa.me/6287790596246",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: ""
   },
   {
     title: "Sistem Informasi Kedisiplinan",
@@ -32,8 +36,8 @@ const projects = [
     image: projectImageKedisiplinan,
     tech: ["CI4", "Bootsrap 5", "MySQL"],
     gradient: "from-primary/20 to-secondary/5",
-    viewUrl: "",
-    codeUrl: "https://github.com/andre-sptr/"
+    viewUrl: "https://binasiswa.icsiak.sch.id/",
+    codeUrl: ""
   },
   {
     title: "HarLah 10 Tahun MAN IC Siak",
@@ -42,16 +46,16 @@ const projects = [
     tech: ["React", "Bootsrap 5", "Node.js"],
     gradient: "from-secondary/20 to-secondary/10",
     viewUrl: "https://harlah.flamyheart.site/",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: "https://github.com/andre-sptr/harlah"
   },
   {
     title: "AI Assistant MAN IC Siak",
-    description: "Asisten AI yang dirancang untuk mendukung layanan dan administrasi di MAN Insan Cendekia Siak.",
+    description: "Asisten AI yang dirancang untuk mendukung layanan dan administrasi di MAN Insan Cendekia Siak",
     image: projectImageAI,
     tech: ["React", "Bootstrap 5", "Node.js"],
-    gradient: "from-primary/20 to-secondary/10",
+    gradient: "from-primary/20 to-secondary/5",
     viewUrl: "https://ai.flamyheart.site/",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: "https://github.com/andre-sptr/ai-agent"
   },
   {
     title: "PDF Tools",
@@ -60,7 +64,43 @@ const projects = [
     tech: ["React", "Bootsrap 5", "Node.js"],
     gradient: "from-primary/20 to-secondary/10",
     viewUrl: "https://pdf.flamyheart.site/",
-    codeUrl: "https://github.com/andre-sptr/"
+    codeUrl: "https://github.com/andre-sptr/pdf-tools"
+  },
+  {
+    title: "Zona Integritas",
+    description: "Portal layanan digital terintegrasi untuk seluruh civitas akademika MAN Insan Cendekia Siak",
+    image: projectZI,
+    tech: ["React", "Bootsrap 5", "Node.js"],
+    gradient: "from-primary/20 to-secondary/5",
+    viewUrl: "https://zi.flamyheart.site/",
+    codeUrl: "https://github.com/andre-sptr/zi"
+  },
+  {
+    title: "AetherNet",
+    description: "Visualisasi real-time koneksi antar node dalam jaringan AetherNet",
+    image: projectAetherNet,
+    tech: ["React", "Bootsrap 5", "Node.js"],
+    gradient: "from-primary/20 to-secondary/10",
+    viewUrl: "https://aethernet.flamyheart.site/",
+    codeUrl: "https://github.com/andre-sptr/aethernet"
+  },
+  {
+    title: "CloudShare - File Hosting",
+    description: "Upload, share, and store your files with ease. Modern secure cloud storage platform for images, videos, and documents",
+    image: projectFile,
+    tech: ["React", "Bootsrap 5", "Node.js"],
+    gradient: "from-primary/20 to-secondary/5",
+    viewUrl: "https://file.flamyheart.site/",
+    codeUrl: "https://github.com/andre-sptr/file"
+  },
+  {
+    title: "EduForum - MAN IC Siak",
+    description: "Platform sosial edukatif untuk siswa, guru, dan alumni MAN IC Siak",
+    image: projectEduForum,
+    tech: ["React", "Bootsrap 5", "Node.js"],
+    gradient: "from-primary/20 to-secondary/10",
+    viewUrl: "https://eduforum.flamyheart.site/",
+    codeUrl: "https://github.com/andre-sptr/eduforum"
   },
 ];
 
