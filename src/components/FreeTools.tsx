@@ -1,4 +1,4 @@
-import { ExternalLink, FileText, Sparkles } from "lucide-react";
+import { ExternalLink, FileText, Sparkles, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const tools = [
@@ -22,6 +22,13 @@ const tools = [
     url: "https://pdf.flamyheart.site",
     icon: FileText,
     color: "secondary",
+  },
+  {
+    name: "File Hosting",
+    description: "",
+    url: "https://file.flamyheart.site",
+    icon: Cloud,
+    color: "primary",
   },
 ];
 
