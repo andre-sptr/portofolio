@@ -23,12 +23,12 @@ import projectReka from "/pages/rekaPage.png";
 const projects = [
   {
     title: "Reka AI",
-    description: "Platform kecerdasan buatan untuk layanan rekayasa digital",
+    description: "Platform kecerdasan buatan (AI) sebagai coding assistant",
     image: projectReka,
     tech: ["React", "GeminiAI", "Node.js"],
     category: "AI & Tools",
     viewUrl: "https://ai.andresptr.site/",
-    codeUrl: ""
+    codeUrl: "https://github.com/andre-sptr/ai"
   },
   {
     title: "Fiscal AI Finance",
@@ -37,7 +37,7 @@ const projects = [
     tech: ["React", "AI", "Node.js"],
     category: "AI & Tools",
     viewUrl: "https://fiscal.andresptr.site/",
-    codeUrl: ""
+    codeUrl: "https://github.com/andre-sptr/fiscal"
   },
   {
     title: "Aqiqah",
@@ -55,7 +55,7 @@ const projects = [
     tech: ["React", "AI", "Node.js"],
     category: "AI & Tools",
     viewUrl: "https://aetpcr.site/",
-    codeUrl: ""
+    codeUrl: "https://github.com/andre-sptr/aet-ai2"
   },
   {
     title: "SiTiket Telkom Infra",
@@ -63,8 +63,8 @@ const projects = [
     image: projectSiTiket,
     tech: ["React", "Node.js", "MySQL"],
     category: "Web Development",
-    viewUrl: "https://sitiket.andresptr.site/dashboard",
-    codeUrl: ""
+    viewUrl: "https://sitiket.andresptr.site/",
+    codeUrl: "https://github.com/andre-sptr/sitiket"
   },
   {
     title: "SNMB MAN IC Siak",
@@ -73,7 +73,7 @@ const projects = [
     tech: ["React", "Bootstrap 5"],
     category: "Web Development",
     viewUrl: "https://snmb.icsiak.sch.id/",
-    codeUrl: ""
+    codeUrl: "https://github.com/andre-sptr/snmb"
   },
   {
     title: "Perpus MAN IC Siak",

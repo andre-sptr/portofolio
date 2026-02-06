@@ -1,4 +1,4 @@
-import { Code2, Cpu, Workflow, Database, Globe, Server, Briefcase, School, Trophy, Building2, CheckCircle2 } from "lucide-react";
+import { Code2, Cpu, Workflow, Database, Globe, Server, Briefcase, School, Trophy, Building2, CheckCircle2, GraduationCap, Bot, Network, Cloud, Palette, BarChart } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
@@ -23,7 +23,12 @@ const skills = [
   { name: "Frontend Development", level: 90, icon: Globe },
   { name: "Backend Systems", level: 85, icon: Server },
   { name: "IoT & Embedded", level: 80, icon: Cpu },
+  { name: "AI & Automation", level: 85, icon: Bot },
   { name: "Database Management", level: 75, icon: Database },
+  { name: "Network Infrastructure", level: 80, icon: Network },
+  { name: "Cloud Services", level: 75, icon: Cloud },
+  { name: "UI/UX Design", level: 70, icon: Palette },
+  { name: "Data Analysis", level: 80, icon: BarChart },
 ];
 
 const experiences = [
@@ -51,6 +56,17 @@ const experiences = [
       "Mengampu mapel Informatika (Algoritma, Pemrograman, Dampak Sosial TI).",
       "Membimbing tim robotik siswa meraih juara dalam kompetisi tingkat regional.",
       "Mengembangkan modul pembelajaran berbasis proyek (IoT & Coding)."
+    ]
+  },
+  {
+    period: "2021 - 2025",
+    role: "Teknik Elektronika Telekomunikasi",
+    company: "Politeknik Caltex Riau",
+    sub: "Higher Education",
+    icon: GraduationCap,
+    description: "Menyelesaikan studi dengan fokus pada teknologi telekomunikasi dan elektronika modern.",
+    details: [
+      "IPK 3.67 (2025)"
     ]
   }
 ];

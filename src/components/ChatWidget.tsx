@@ -8,8 +8,6 @@ import { toast } from "sonner";
 
 // Configuration
 const API_ENDPOINT = "https://ai.sumopod.com/v1/chat/completions";
-// API Key is loaded from environment variable (.env)
-// Ensure VITE_SUMOPOD_API_KEY is set in your .env file
 const API_KEY = import.meta.env.VITE_SUMOPOD_API_KEY;
 const MODEL = "gpt-4o-mini";
 const MAX_TOKENS = 500;
@@ -29,18 +27,18 @@ Skills: Frontend (90%), Backend (85%), IoT (80%), Database (75%).
 Tech Stack: React, Node.js, PHP (CodeIgniter), Arduino, ESP32, Python, n8n, Zapier.
 
 Projects:
-1. FireSense: IoT fire detection system using ESP32, Firebase, and Fuzzy Logic.
-2. WhatsApp AI ChatBot: Automated workflow for answering questions & content creation using n8n & GeminiAI.
-3. Sistem Informasi Kedisiplinan: Digital student discipline & health record system (CI4, Bootstrap, MySQL).
-4. HarLah 10 Tahun MAN IC Siak: Event publication platform (React, Node.js).
-5. AI Assistant MAN IC Siak: Support AI for school administration (React, Node.js).
-6. PDF Tools: Online PDF management suite (merge, split, compress) (React, Node.js).
-7. Zona Integritas: Integrated digital service portal (React, Node.js).
-8. AetherNet: Real-time network visualization (React, Node.js).
-9. CloudShare: Secure file hosting & sharing platform (React, Node.js).
-10. EduForum: Social educational platform for MAN IC Siak community.
+1. Reka AI: AI platform for digital engineering services & real-time coding assistant.
+2. Fiscal AI Finance: AI-powered finance management application for fiscal prediction and reporting.
+3. Undungan: Modern digital aqiqah invitation platform.
+4. AET AI: AI solution for AET Student Association at Politeknik Caltex Riau.
+5. SiTiket: Trouble ticket management system for Telkom Infrastructure.
+6. SNMB: Landing page for MAN IC Siak new student national selection.
+7. Perpus MAN IC Siak: Comprehensive digital library system with online lending.
+8. EduForum: Social educational platform for MAN IC Siak community.
+9. FireSense: IoT fire detection system using ESP32, Firebase, and Fuzzy Logic.
+10. PDF Tools: Online PDF management suite (merge, split, compress).
 
-Free Tools provided by Andre: ChatBot, AI Agent, PDF Tools, File Hosting.
+Free Tools provided by Andre: Reka AI, AI Finance, EduForum, PDF Tools.
 Contact: andresaputra07012019@gmail.com, GitHub (andre-sptr), LinkedIn (andre-saputra-434561381).
 
 Guidelines:
@@ -58,9 +56,9 @@ interface Message {
 
 const SUGGESTIONS = [
   "Apa skill utama Andre?",
-  "Ceritakan tentang project IoT",
+  "Ceritakan tentang Reka AI",
   "Bagaimana cara kontak Andre?",
-  "Apa itu FireSense?",
+  "Apa itu Fiscal AI?",
 ];
 
 export function ChatWidget() {
