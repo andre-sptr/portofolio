@@ -11,7 +11,7 @@ import { toast } from "sonner";
 // Configuration
 const API_ENDPOINT = "https://ai.sumopod.com/v1/chat/completions";
 const API_KEY = import.meta.env.VITE_SUMOPOD_API_KEY;
-const MODEL = "gpt-5.1";
+const MODEL = "claude-sonnet-4";
 const MAX_TOKENS = 500;
 const TEMPERATURE = 0.3;
 
