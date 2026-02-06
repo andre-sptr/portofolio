@@ -1,5 +1,7 @@
-import { ExternalLink, Github } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, Github, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 import projectImageFireSense from "/project-iot.png";
 import projectImageChatBot from "/project-n8n.png";
 import projectImageKedisiplinan from "/project-web.png";
@@ -17,7 +19,7 @@ const projects = [
     description: "Sistem IoT cerdas dengan logika Fuzzy untuk deteksi dini potensi kebakaran secara real-time",
     image: projectImageFireSense,
     tech: ["ESP32", "Figma", "Firebase"],
-    gradient: "from-primary/20 to-primary/5",
+    category: "IoT",
     viewUrl: "",
     codeUrl: ""
   },
@@ -26,7 +28,7 @@ const projects = [
     description: "Workflow chatbot WhatsApp otomatis yang ditenagai oleh Gemini AI untuk menjawab pertanyaan dan membuat konten visual",
     image: projectImageChatBot,
     tech: ["n8n", "GeminiAI", "WhatsApp"],
-    gradient: "from-secondary/20 to-secondary/10",
+    category: "AI & Tools",
     viewUrl: "https://wa.me/6287790596246",
     codeUrl: ""
   },
@@ -34,8 +36,8 @@ const projects = [
     title: "Sistem Informasi Kedisiplinan",
     description: "Sistem informasi untuk pencatatan poin pelanggaran dan data kesehatan siswa secara digital",
     image: projectImageKedisiplinan,
-    tech: ["CI4", "Bootsrap 5", "MySQL"],
-    gradient: "from-primary/20 to-secondary/5",
+    tech: ["CI4", "Bootstrap 5", "MySQL"],
+    category: "Web Development",
     viewUrl: "https://binasiswa.icsiak.sch.id/",
     codeUrl: ""
   },
@@ -43,8 +45,8 @@ const projects = [
     title: "HarLah 10 Tahun MAN IC Siak",
     description: "Platform digital yang dirancang untuk mempublikasikan perayaan HarLah ke-10 MAN Insan Cendekia Siak",
     image: projectImageHarLah,
-    tech: ["React", "Bootsrap 5", "Node.js"],
-    gradient: "from-secondary/20 to-secondary/10",
+    tech: ["React", "Bootstrap 5", "Node.js"],
+    category: "Web Development",
     viewUrl: "https://harlah.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/harlah"
   },
@@ -53,7 +55,7 @@ const projects = [
     description: "Asisten AI yang dirancang untuk mendukung layanan dan administrasi di MAN Insan Cendekia Siak",
     image: projectImageAI,
     tech: ["React", "Bootstrap 5", "Node.js"],
-    gradient: "from-primary/20 to-secondary/5",
+    category: "AI & Tools",
     viewUrl: "https://ai.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/ai-agent"
   },
@@ -61,8 +63,8 @@ const projects = [
     title: "PDF Tools",
     description: "Serangkaian alat online untuk mengelola PDF—gabung, pisah, dan kompres dengan cepat",
     image: projectImagePDFTools,
-    tech: ["React", "Bootsrap 5", "Node.js"],
-    gradient: "from-primary/20 to-secondary/10",
+    tech: ["React", "Bootstrap 5", "Node.js"],
+    category: "AI & Tools",
     viewUrl: "https://pdf.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/pdf-tools"
   },
@@ -70,8 +72,8 @@ const projects = [
     title: "Zona Integritas",
     description: "Portal layanan digital terintegrasi untuk seluruh civitas akademika MAN Insan Cendekia Siak",
     image: projectZI,
-    tech: ["React", "Bootsrap 5", "Node.js"],
-    gradient: "from-primary/20 to-secondary/5",
+    tech: ["React", "Bootstrap 5", "Node.js"],
+    category: "Web Development",
     viewUrl: "https://zi.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/zi"
   },
@@ -79,8 +81,8 @@ const projects = [
     title: "AetherNet",
     description: "Visualisasi real-time koneksi antar node dalam jaringan AetherNet",
     image: projectAetherNet,
-    tech: ["React", "Bootsrap 5", "Node.js"],
-    gradient: "from-primary/20 to-secondary/10",
+    tech: ["React", "Bootstrap 5", "Node.js"],
+    category: "Web Development",
     viewUrl: "https://aethernet.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/aethernet"
   },
@@ -88,8 +90,8 @@ const projects = [
     title: "CloudShare - File Hosting",
     description: "Upload, share, and store your files with ease. Modern secure cloud storage platform for images, videos, and documents",
     image: projectFile,
-    tech: ["React", "Bootsrap 5", "Node.js"],
-    gradient: "from-primary/20 to-secondary/5",
+    tech: ["React", "Bootstrap 5", "Node.js"],
+    category: "Web Development",
     viewUrl: "https://file.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/file"
   },
@@ -97,80 +99,128 @@ const projects = [
     title: "EduForum - MAN IC Siak",
     description: "Platform sosial edukatif untuk siswa, guru, dan alumni MAN IC Siak",
     image: projectEduForum,
-    tech: ["React", "Bootsrap 5", "Node.js"],
-    gradient: "from-primary/20 to-secondary/10",
+    tech: ["React", "Bootstrap 5", "Node.js"],
+    category: "Web Development",
     viewUrl: "https://eduforum.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/eduforum"
   },
 ];
 
-const Projects = () => {
-  return (
-    <section id="projects" className="py-24 px-4 bg-gradient-to-b from-transparent to-card/30">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="gradient-text-blue">Projects</span>
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of recent work combining innovation, design, and technology
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div 
-              key={index}
-              className="glass-card rounded-2xl overflow-hidden group hover:glow-blue transition-all duration-500 animate-fade-in-up flex flex-col h-full"
-              style={{ animationDelay: `${index * 0.15}s` }}
-            >
-              <div className="overflow-hidden h-48 flex-shrink-0">
-                <img 
-                  src={project.image} 
-                  alt={`Tangkapan layar dari proyek ${project.title}`}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+const categories = ["All", "Web Development", "IoT", "AI & Tools"];
 
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="flex-grow">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
+const Projects = () => {
+  const [filter, setFilter] = useState("All");
+
+  const filteredProjects = projects.filter(
+    (project) => filter === "All" || project.category === filter
+  );
+
+  return (
+    <section id="projects" className="py-24 px-4 bg-black/20">
+      <div className="container mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+            A showcase of my recent work, ranging from web applications to IoT solutions.
+          </p>
+
+          {/* Filters */}
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={filter === category ? "default" : "outline"}
+                onClick={() => setFilter(category)}
+                className={`rounded-full transition-all duration-300 ${
+                  filter === category 
+                    ? "bg-primary text-white glow-hover" 
+                    : "border-white/10 hover:bg-white/5 hover:text-white"
+                }`}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div 
+          layout
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <AnimatePresence>
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                key={project.title}
+                className="group relative rounded-2xl overflow-hidden glass-card border-white/5 hover:border-primary/50 transition-colors"
+              >
+                {/* Image Overlay */}
+                <div className="relative aspect-video overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  />
                   
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, i) => (
+                  {/* Floating Action Buttons */}
+                  <div className="absolute bottom-4 right-4 flex gap-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-20">
+                    {project.codeUrl && (
+                      <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
+                        <Button size="icon" variant="secondary" className="rounded-full w-10 h-10 hover:scale-110 transition-transform">
+                          <Github className="w-5 h-5" />
+                        </Button>
+                      </a>
+                    )}
+                    {project.viewUrl && (
+                      <a href={project.viewUrl} target="_blank" rel="noopener noreferrer">
+                        <Button size="icon" className="rounded-full w-10 h-10 bg-primary hover:bg-primary/90 hover:scale-110 transition-transform">
+                          <ExternalLink className="w-5 h-5" />
+                        </Button>
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
+                      {project.category}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-1">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mt-auto">
+                    {project.tech.map((tech) => (
                       <span 
-                        key={i}
-                        className="px-3 py-1 text-xs rounded-full bg-muted/60 text-foreground"
+                        key={tech} 
+                        className="text-xs px-2 py-1 rounded-md bg-white/5 text-muted-foreground border border-white/5"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-                
-                <div className="flex items-center gap-2 pt-4 border-t border-border/50">
-                  {project.viewUrl && (
-                    <a href={project.viewUrl} target="_blank" rel="noopener noreferrer">
-                      <Button variant="ghost" size="sm" className="hover:text-primary">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        View
-                      </Button>
-                    </a>
-                  )}
-                  {project.codeUrl && (
-                    <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
-                      <Button variant="ghost" size="sm" className="hover:text-secondary">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                    </a>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
       </div>
     </section>
   );
