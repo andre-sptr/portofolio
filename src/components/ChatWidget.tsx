@@ -347,7 +347,7 @@ export function ChatWidget() {
               </div>
               <div className="text-center mt-2">
                  <span className="text-[10px] text-muted-foreground/50">
-                    Powered by SumoPod AI • gpt-5.1
+                    Powered by OpenAI • GPT-5.1
                  </span>
               </div>
             </div>

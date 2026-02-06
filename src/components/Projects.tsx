@@ -2,22 +2,92 @@ import { useState } from "react";
 import { ExternalLink, Github, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import projectImageFireSense from "/project-iot.png";
-import projectImageChatBot from "/project-n8n.png";
-import projectImageKedisiplinan from "/project-web.png";
-import projectImageHarLah from "/project-harlah.png";
-import projectImagePDFTools from "/project-pdf.png";
-import projectImageAI from "/project-ai.png";
-import projectZI from "/project-zi.png";
-import projectAetherNet from "/project-aethernet.png";
-import projectFile from "/project-file.png";
-import projectEduForum from "/project-eduforum.png";
+import projectFireSense from "/pages/iotPage.png";
+import projectChatBot from "/pages/n8nPage.png";
+import projectBinasiswa from "/pages/binasiswaPage.png";
+import projectHarLah from "/pages/harlahPage.png";
+import projectPDF from "/pages/pdfPage.png";
+import projectAI from "/pages/aiPage.png";
+import projectZI from "/pages/ziPage.png";
+import projectAetherNet from "/pages/aethernetPage.png";
+import projectFile from "/pages/filePage.png";
+import projectEduForum from "/pages/eduforumPage.png";
+import projectSNMB from "/pages/snmbPage.png";
+import projectPerpus from "/pages/perpusPage.png";
+import projectAET from "/pages/aetPage.png";
+import projectSiTiket from "/pages/sitiketPage.png";
+import projectAqiqah from "/pages/aqiqahPage.png";
+import projectFiscal from "/pages/fiscalPage.png";
+import projectReka from "/pages/rekaPage.png";
 
 const projects = [
   {
-    title: "FireSense: Sistem Peringatan Dini Kebakaran",
+    title: "Reka AI",
+    description: "Platform kecerdasan buatan untuk layanan rekayasa digital",
+    image: projectReka,
+    tech: ["React", "GeminiAI", "Node.js"],
+    category: "AI & Tools",
+    viewUrl: "https://ai.andresptr.site/",
+    codeUrl: ""
+  },
+  {
+    title: "Fiscal AI Finance",
+    description: "Aplikasi manajemen keuangan berbasis AI untuk prediksi dan pelaporan fiskal",
+    image: projectFiscal,
+    tech: ["React", "AI", "Node.js"],
+    category: "AI & Tools",
+    viewUrl: "https://fiscal.andresptr.site/",
+    codeUrl: ""
+  },
+  {
+    title: "Aqiqah",
+    description: "Undangan digital aqiqah dengan desain modern dan interaktif",
+    image: projectAqiqah,
+    tech: ["React", "Tailwind"],
+    category: "Web Development",
+    viewUrl: "https://aqiqah.icsiak.site/",
+    codeUrl: ""
+  },
+  {
+    title: "AET AI PCR",
+    description: "Solusi AI untuk himpunan mahasiswa AET Politeknik Caltex Riau",
+    image: projectAET,
+    tech: ["React", "AI", "Node.js"],
+    category: "AI & Tools",
+    viewUrl: "https://aetpcr.site/",
+    codeUrl: ""
+  },
+  {
+    title: "SiTiket Telkom Infra",
+    description: "Sistem manajemen tiket gangguan PT Telkom Infrastruktur Indonesia",
+    image: projectSiTiket,
+    tech: ["React", "Node.js", "MySQL"],
+    category: "Web Development",
+    viewUrl: "https://sitiket.andresptr.site/dashboard",
+    codeUrl: ""
+  },
+  {
+    title: "SNMB MAN IC Siak",
+    description: "Landing page Seleksi Nasional Murid Baru untuk MAN Insan Cendekia Siak",
+    image: projectSNMB,
+    tech: ["React", "Bootstrap 5"],
+    category: "Web Development",
+    viewUrl: "https://snmb.icsiak.sch.id/",
+    codeUrl: ""
+  },
+  {
+    title: "Perpus MAN IC Siak",
+    description: "Perpustakaan digital lengkap dengan katalog, peminjaman online, dan riwayat",
+    image: projectPerpus,
+    tech: ["React", "Node.js", "MySQL"],
+    category: "Web Development",
+    viewUrl: "https://perpus.icsiak.sch.id/",
+    codeUrl: ""
+  },
+  {
+    title: "FireSense: Sistem Peringatan Kebakaran",
     description: "Sistem IoT cerdas dengan logika Fuzzy untuk deteksi dini potensi kebakaran secara real-time",
-    image: projectImageFireSense,
+    image: projectFireSense,
     tech: ["ESP32", "Figma", "Firebase"],
     category: "IoT",
     viewUrl: "",
@@ -26,16 +96,16 @@ const projects = [
   {
     title: "WhatsApp AI ChatBot",
     description: "Workflow chatbot WhatsApp otomatis yang ditenagai oleh Gemini AI untuk menjawab pertanyaan dan membuat konten visual",
-    image: projectImageChatBot,
+    image: projectChatBot,
     tech: ["n8n", "GeminiAI", "WhatsApp"],
     category: "AI & Tools",
-    viewUrl: "https://wa.me/6287790596246",
+    viewUrl: "",
     codeUrl: ""
   },
   {
     title: "Sistem Informasi Kedisiplinan",
     description: "Sistem informasi untuk pencatatan poin pelanggaran dan data kesehatan siswa secara digital",
-    image: projectImageKedisiplinan,
+    image: projectBinasiswa,
     tech: ["CI4", "Bootstrap 5", "MySQL"],
     category: "Web Development",
     viewUrl: "https://binasiswa.icsiak.sch.id/",
@@ -44,28 +114,28 @@ const projects = [
   {
     title: "HarLah 10 Tahun MAN IC Siak",
     description: "Platform digital yang dirancang untuk mempublikasikan perayaan HarLah ke-10 MAN Insan Cendekia Siak",
-    image: projectImageHarLah,
+    image: projectHarLah,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
-    viewUrl: "https://harlah.flamyheart.site/",
+    viewUrl: "https://harlah.icsiak.sch.id/",
     codeUrl: "https://github.com/andre-sptr/harlah"
   },
   {
     title: "AI Assistant MAN IC Siak",
     description: "Asisten AI yang dirancang untuk mendukung layanan dan administrasi di MAN Insan Cendekia Siak",
-    image: projectImageAI,
+    image: projectAI,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "AI & Tools",
-    viewUrl: "https://ai.flamyheart.site/",
+    viewUrl: "",
     codeUrl: "https://github.com/andre-sptr/ai-agent"
   },
   {
     title: "PDF Tools",
     description: "Serangkaian alat online untuk mengelola PDF—gabung, pisah, dan kompres dengan cepat",
-    image: projectImagePDFTools,
+    image: projectPDF,
     tech: ["React", "Bootstrap 5", "Node.js"],
-    category: "AI & Tools",
-    viewUrl: "https://pdf.flamyheart.site/",
+    category: "Web Development",
+    viewUrl: "https://pdf.andresptr.site/",
     codeUrl: "https://github.com/andre-sptr/pdf-tools"
   },
   {
@@ -74,7 +144,7 @@ const projects = [
     image: projectZI,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
-    viewUrl: "https://zi.flamyheart.site/",
+    viewUrl: "",
     codeUrl: "https://github.com/andre-sptr/zi"
   },
   {
@@ -83,7 +153,7 @@ const projects = [
     image: projectAetherNet,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
-    viewUrl: "https://aethernet.flamyheart.site/",
+    viewUrl: "https://aethernet.andresptr.site/",
     codeUrl: "https://github.com/andre-sptr/aethernet"
   },
   {
@@ -92,7 +162,7 @@ const projects = [
     image: projectFile,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
-    viewUrl: "https://file.flamyheart.site/",
+    viewUrl: "",
     codeUrl: "https://github.com/andre-sptr/file"
   },
   {

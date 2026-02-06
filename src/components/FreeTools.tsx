@@ -7,7 +7,7 @@ const tools = [
     name: "Reka AI",
     description: "A real-time AI coding assistant that transforms your ideas into executable code instantly.",
     url: "https://ai.andresptr.site/",
-    icon: "/reka.png",
+    icon: "/logo/reka.png",
     color: "secondary",
     isImage: true
   },
@@ -15,7 +15,7 @@ const tools = [
     name: "AI Finance",
     description: "An intelligent finance tracker powered by AI to simplify your money management.",
     url: "https://fiscal.andresptr.site/",
-    icon: "/fiscal.png",
+    icon: "/logo/fiscal.png",
     color: "primary",
     isImage: true
   },
@@ -31,7 +31,7 @@ const tools = [
     name: "EduForum",
     description: "The exclusive interactive learning platform for MAN IC Siak. Empowers students and teachers with tools.",
     url: "https://eduforum.flamyheart.site/",
-    icon: "/manic.png",
+    icon: "/logo/manic.png",
     color: "primary",
     isImage: true
   },
