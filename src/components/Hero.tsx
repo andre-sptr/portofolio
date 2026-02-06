@@ -47,7 +47,7 @@ const Hero = () => {
             animate="visible"
           >
             <motion.div variants={itemVariants} className="inline-block mb-4">
-              <span className="px-4 py-2 rounded-full glass border border-primary/20 text-sm font-medium text-primary bg-primary/10 backdrop-blur-md">
+              <span className="px-4 py-2 rounded-full glass border border-primary/20 text-sm font-medium text-primary bg-primary/10 backdrop-blur-md hidden sm:inline-block">
                 Available for Freelance & Collaboration
               </span>
             </motion.div>
@@ -72,23 +72,23 @@ const Hero = () => {
               </Button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex gap-6 justify-center lg:justify-start items-center text-muted-foreground">
-              <a href="https://github.com/andre-sptr" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
+            <motion.div variants={itemVariants} className="flex gap-4 justify-center lg:justify-start items-center text-muted-foreground">
+              <a href="https://github.com/andre-sptr" className="p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
                 <Github className="w-6 h-6" />
               </a>
-              <a href="https://www.linkedin.com/in/andre-sptr" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
+              <a href="https://www.linkedin.com/in/andre-sptr" className="p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href="https://www.instagram.com/andree.sptrr/" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
+              <a href="https://www.instagram.com/andree.sptrr/" className="p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
                 <Instagram className="w-6 h-6" />
               </a>
-              <a href="mailto:andresaputra07012019@gmail.com" className="hover:text-primary transition-colors transform hover:scale-110 duration-200">
+              <a href="mailto:andresaputra07012019@gmail.com" className="p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200 hidden sm:inline-block">
                 <Mail className="w-6 h-6" />
               </a>
               <div className="w-px h-8 bg-border mx-2"></div>
-              <a href="/CV_Andre-Saputra.pdf" className="flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors group">
+              <a href="/CV_Andre-Saputra.pdf" className="p-3 flex items-center gap-2 text-sm font-medium hover:text-primary transition-colors group">
                 <Download className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
-                Download CV
+                <span className="hidden sm:inline-block">Download </span>CV
               </a>
             </motion.div>
           </motion.div>

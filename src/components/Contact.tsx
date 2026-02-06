@@ -99,16 +99,16 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="glass-card p-8 rounded-2xl border-l-4 border-l-primary">
+            <div className="glass-card p-6 md:p-8 rounded-2xl border-l-4 border-l-primary">
               <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
               <div className="space-y-6">
                 <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <a href="mailto:andresaputra07012019@gmail.com" className="text-lg font-medium hover:text-primary transition-colors">
+                    <a href="mailto:andresaputra07012019@gmail.com" className="text-base md:text-lg font-medium hover:text-primary transition-colors break-all block">
                       andresaputra07012019@gmail.com
                     </a>
                   </div>
@@ -139,7 +139,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8 rounded-2xl"
+            className="glass-card p-6 md:p-8 rounded-2xl"
           >
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -150,7 +150,7 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your name" {...field} className="bg-white/5 border-white/10 focus:border-primary/50" />
+                        <Input placeholder="Your name" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base md:text-sm" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -163,7 +163,7 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="your@email.com" {...field} className="bg-white/5 border-white/10 focus:border-primary/50" />
+                        <Input placeholder="your@email.com" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base md:text-sm" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -176,7 +176,7 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
-                        <Input placeholder="Project Inquiry" {...field} className="bg-white/5 border-white/10 focus:border-primary/50" />
+                        <Input placeholder="Project Inquiry" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base md:text-sm" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -191,7 +191,7 @@ const Contact = () => {
                       <FormControl>
                         <Textarea 
                           placeholder="Tell me about your project..." 
-                          className="min-h-[150px] bg-white/5 border-white/10 focus:border-primary/50 resize-none" 
+                          className="min-h-[150px] bg-white/5 border-white/10 focus:border-primary/50 resize-none text-base md:text-sm" 
                           {...field} 
                         />
                       </FormControl>
