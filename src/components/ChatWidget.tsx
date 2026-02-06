@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { MessageSquare, Send, X, Minimize2, Maximize2, Loader2, Bot, User, RefreshCw, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -9,7 +11,7 @@ import { toast } from "sonner";
 // Configuration
 const API_ENDPOINT = "https://ai.sumopod.com/v1/chat/completions";
 const API_KEY = import.meta.env.VITE_SUMOPOD_API_KEY;
-const MODEL = "gpt-4o-mini";
+const MODEL = "gpt-5.1";
 const MAX_TOKENS = 500;
 const TEMPERATURE = 0.3;
 
@@ -46,6 +48,7 @@ Guidelines:
 - If unsure, suggest contacting Andre directly via email.
 - Keep answers under 3-4 sentences unless detailed explanation is asked.
 - Use "I" to refer to yourself as the AI Assistant, and "Andre" for the portfolio owner.
+- Format your responses using Markdown (lists, bold text, links) for better readability.
 `;
 
 // Types
@@ -305,7 +308,20 @@ export function ChatWidget() {
                         : "bg-muted/50 border border-white/5 rounded-tl-none"
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">{msg.content}</p>
+                    {msg.role === "assistant" ? (
+                      <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1 prose-ul:my-1 prose-li:my-0.5 prose-headings:my-2 prose-headings:text-foreground prose-strong:text-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline">
+                        <ReactMarkdown 
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            a: ({node, ...props}) => <a {...props} target="_blank" rel="noopener noreferrer" />
+                          }}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
+                      </div>
+                    ) : (
+                      <p className="whitespace-pre-wrap">{msg.content}</p>
+                    )}
                   </div>
                 </div>
               ))}
