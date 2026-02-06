@@ -11,9 +11,7 @@ const Analytics = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // This is a placeholder for Google Analytics or other tracking tools
-    // Replace 'G-XXXXXXXXXX' with your actual tracking ID
-    const trackingId = 'G-XXXXXXXXXX';
+    const trackingId = 'G-RKHP9YC18M';
 
     if (window.gtag) {
       window.gtag('config', trackingId, {
@@ -21,7 +19,6 @@ const Analytics = () => {
       });
     }
 
-    // Example of logging page view to console for development
     if (process.env.NODE_ENV === 'development') {
       console.log(`[Analytics] Page view: ${location.pathname}${location.search}`);
     }

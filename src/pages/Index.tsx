@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from "@/components/SEO";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 
@@ -17,17 +17,75 @@ const LoadingFallback = () => (
 );
 
 const Index = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://andresptr.site/#person",
+        "name": "Andre Saputra",
+        "url": "https://andresptr.site",
+        "image": "https://andresptr.site/andre.png",
+        "jobTitle": ["Full Stack Developer", "Informatics Teacher"],
+        "description": "Portofolio Andre Saputra, seorang Full Stack Developer dan Guru Informatika yang berfokus pada pengembangan web modern, AI, dan solusi digital.",
+        "sameAs": [
+          "https://github.com/andre-sptr",
+          "https://www.linkedin.com/in/andre-sptr",
+          "https://www.instagram.com/andree.sptrr/"
+        ],
+        "worksFor": {
+          "@type": "Organization",
+          "name": "MAN IC Siak"
+        },
+        "knowsAbout": ["React", "TypeScript", "Node.js", "AI Integration", "IoT", "Web Development"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://andresptr.site/#website",
+        "url": "https://andresptr.site",
+        "name": "Andre Saputra Portfolio",
+        "description": "Portofolio Andre Saputra: Proyek inovatif dalam pengembangan web, AI, dan IoT.",
+        "publisher": {
+          "@id": "https://andresptr.site/#person"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Reka AI",
+            "description": "Platform kecerdasan buatan (AI) sebagai coding assistant",
+            "url": "https://ai.andresptr.site/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Fiscal AI Finance",
+            "description": "Aplikasi manajemen keuangan berbasis AI",
+            "url": "https://fiscal.andresptr.site/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "SiTiket Telkom Infra",
+            "description": "Sistem manajemen tiket gangguan PT Telkom Infrastruktur Indonesia",
+            "url": "https://sitiket.andresptr.site/"
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Portfolio | Professional Web Developer</title>
-        <meta name="description" content="Professional portfolio showcasing web development projects, skills, and services. Specialized in React, TypeScript, and modern web technologies." />
-        <meta name="keywords" content="web developer, portfolio, react, typescript, frontend, fullstack" />
-        <meta property="og:title" content="Portfolio | Professional Web Developer" />
-        <meta property="og:description" content="Professional portfolio showcasing web development projects, skills, and services." />
-        <meta property="og:type" content="website" />
-        <meta name="theme-color" content="#000000" />
-      </Helmet>
+      <SEO 
+        title="Andre Saputra | Full Stack Developer & AI Enthusiast"
+        description="Jelajahi portofolio Andre Saputra: Proyek inovatif dalam pengembangan web, AI, dan IoT. Solusi digital profesional untuk kebutuhan modern."
+        keywords={["Andre Saputra", "Portofolio", "Web Developer Indonesia", "React Developer", "AI Engineer", "IoT Specialist", "Guru Informatika"]}
+        schema={schema}
+      />
 
       <Navigation />
       <Hero />

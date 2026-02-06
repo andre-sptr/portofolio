@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://andresptr.site/sitemap.xml
