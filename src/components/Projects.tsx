@@ -10,6 +10,7 @@ import projectZI from "/project-zi.png";
 import projectAetherNet from "/project-aethernet.png";
 import projectFile from "/project-file.png";
 import projectEduForum from "/project-eduforum.png";
+import projectTutorin from "/project-tutoring.png";
 
 const projects = [
   {
@@ -101,6 +102,15 @@ const projects = [
     gradient: "from-primary/20 to-secondary/10",
     viewUrl: "https://eduforum.flamyheart.site/",
     codeUrl: "https://github.com/andre-sptr/eduforum"
+  },
+  {
+    title: "TutorinBanget - Platform Tutorial Troubleshooting",
+    description: "Platform tutorial troubleshooting yang menyediakan panduan langkah demi langkah untuk berbagai masalah teknis",
+    image: projectTutorin,
+    tech: ["React", "Bootsrap 5", "Node.js"],
+    gradient: "from-primary/20 to-secondary/10",
+    viewUrl: "https://tutorinbang.my.id/",
+    codeUrl: "https://github.com/andre-sptr/tutorin"
   },
 ];
 
