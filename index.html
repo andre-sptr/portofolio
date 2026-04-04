@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,44 +20,19 @@
     <meta property="og:description" content="Selamat datang di portofolio Andre Saputra. Saya seorang Web Developer yang berfokus menciptakan solusi digital yang fungsional dan menarik. Lihat karya-karya saya di sini." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/preview.png" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RKHP9YC18M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-RKHP9YC18M');
+    </script>
   </head>
 
   <body>
     <div id="root"></div>
-    <a href="https://ai.flamyheart.site" class="floating-btn" target="_blank">
-      <img src="/maskot(2).png" alt="Maskot">
-    </a>
-
     <script type="module" src="/src/main.tsx"></script>
-
-    <style>
-      .floating-btn {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        width: 60px;
-        height: 60px;
-        background-color: #ffffff; 
-        border-radius: 50%;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-        z-index: 100;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        transition: all 0.3s ease;
-      }
-      .floating-btn img {
-          width: 50px;
-          height: 50px;
-          object-fit: contain;
-          margin-left: 3px;
-      }
-      .floating-btn:hover {
-          transform: translateY(-5px);
-          box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
-      }
-    </style>
   </body>
 </html>
