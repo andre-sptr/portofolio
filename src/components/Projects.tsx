@@ -176,7 +176,7 @@ const projects = [
     codeUrl: "https://github.com/andre-sptr/eduforum"
   },
   {
-    title: "TutorinBanget - Platform Tutorial Troubleshooting",
+    title: "TutorinBang - Platform Tutorial Troubleshooting",
     description: "Platform tutorial troubleshooting yang menyediakan panduan langkah demi langkah untuk berbagai masalah teknis",
     image: projectTutorin,
     tech: ["React", "Bootsrap 5", "Node.js"],
