@@ -1,19 +1,6 @@
 import { useState } from "react";
 import { ExternalLink, Github, Filter } from "lucide-react";
 import { Button } from "@/components/ui/button";
-<<<<<<< HEAD
-import projectImageFireSense from "/project-iot.png";
-import projectImageChatBot from "/project-n8n.png";
-import projectImageKedisiplinan from "/project-web.png";
-import projectImageHarLah from "/project-harlah.png";
-import projectImagePDFTools from "/project-pdf.png";
-import projectImageAI from "/project-ai.png";
-import projectZI from "/project-zi.png";
-import projectAetherNet from "/project-aethernet.png";
-import projectFile from "/project-file.png";
-import projectEduForum from "/project-eduforum.png";
-import projectTutorin from "/project-tutoring.png";
-=======
 import { motion, AnimatePresence } from "framer-motion";
 import projectFireSense from "/pages/iotPage.png";
 import projectChatBot from "/pages/n8nPage.png";
@@ -32,7 +19,7 @@ import projectSiTiket from "/pages/sitiketPage.png";
 import projectAqiqah from "/pages/aqiqahPage.png";
 import projectFiscal from "/pages/fiscalPage.png";
 import projectReka from "/pages/rekaPage.png";
->>>>>>> 73f87abe3aaf0536297a860a63206c91b3367527
+import projectTutorin from "/pages/tutorinPage.png";
 
 const projects = [
   {
