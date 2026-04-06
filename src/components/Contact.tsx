@@ -12,7 +12,7 @@ import { toast } from "sonner";
 
 const socialLinks = [
   { icon: Github, url: "https://github.com/andre-sptr/", label: "GitHub" },
-  { icon: Linkedin, url: "https://www.linkedin.com/in/andre-saputra-434561381", label: "LinkedIn" },
+  { icon: Linkedin, url: "https://www.linkedin.com/in/andre-sptr", label: "LinkedIn" },
   { icon: Instagram, url: "https://www.instagram.com/andree.sptrr", label: "Instagram" },
 ];
 
@@ -112,6 +112,12 @@ const Contact = () => {
                       andresaputra07012019@gmail.com
                     </a>
                   </div>
+                </div>
+                <div className="pl-16">
+                  <p className="text-sm text-muted-foreground">Phone</p>
+                  <a href="https://wa.me/6282387025429" target="_blank" rel="noopener noreferrer" className="text-base md:text-lg font-medium hover:text-primary transition-colors">
+                    +62 823 8702 5429
+                  </a>
                 </div>
               </div>
             </div>

@@ -93,7 +93,6 @@
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
-    cursor: none; /* Hide default cursor for custom cursor */
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -153,41 +152,7 @@
   background: hsl(263 70% 50%);
 }
 
-/* Custom Cursor Styles */
-.cursor-dot,
-.cursor-outline {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 9999;
-  pointer-events: none;
-}
-
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: hsl(var(--primary));
-}
-
-.cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 2px solid hsl(var(--primary) / 0.5);
-  transition: width 0.2s, height 0.2s, background-color 0.2s;
-}
-
-body:hover .cursor-outline {
-  opacity: 1;
-}
-
 /* Smooth Scrolling is handled by lenis or similar, but basic css: */
 html {
   scroll-behavior: smooth;
-}
-
-.cursor-outline.cursor-hover {
-  background-color: hsl(var(--primary) / 0.1);
-  border-color: hsl(var(--primary) / 0.8);
 }

@@ -7,7 +7,6 @@ import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import CustomCursor from "./components/ui/CustomCursor";
 import { ChatWidget } from "./components/ChatWidget";
 import Analytics from "./components/Analytics";
 
@@ -18,7 +17,6 @@ const App = () => (
     <HelmetProvider>
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <TooltipProvider>
-          <CustomCursor />
           <ChatWidget />
           <Toaster />
           <Sonner />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ExternalLink, Github, Filter } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import projectFireSense from "/pages/iotPage.png";
@@ -24,7 +24,7 @@ import projectTutorin from "/pages/tutorinPage.png";
 const projects = [
   {
     title: "Reka AI",
-    description: "Platform kecerdasan buatan (AI) sebagai coding assistant",
+    description: "Website AI-assisted coding untuk membantu developer menulis, debugging, dan optimasi kode.",
     image: projectReka,
     tech: ["React", "GeminiAI", "Node.js"],
     category: "AI & Tools",
@@ -33,7 +33,7 @@ const projects = [
   },
   {
     title: "Fiscal AI Finance",
-    description: "Aplikasi manajemen keuangan berbasis AI untuk prediksi dan pelaporan fiskal",
+    description: "Web app manajemen keuangan personal berbasis AI untuk kategorisasi pengeluaran dan analisis finansial.",
     image: projectFiscal,
     tech: ["React", "AI", "Node.js"],
     category: "AI & Tools",
@@ -42,7 +42,7 @@ const projects = [
   },
   {
     title: "Aqiqah",
-    description: "Undangan digital aqiqah dengan desain modern dan interaktif",
+    description: "Undangan digital aqiqah dengan desain modern dan interaktif.",
     image: projectAqiqah,
     tech: ["React", "Tailwind"],
     category: "Web Development",
@@ -51,7 +51,7 @@ const projects = [
   },
   {
     title: "AET AI PCR",
-    description: "Solusi AI untuk himpunan mahasiswa AET Politeknik Caltex Riau",
+    description: "Platform informasi berbasis AI untuk Himpunan Mahasiswa AET Politeknik Caltex Riau.",
     image: projectAET,
     tech: ["React", "AI", "Node.js"],
     category: "AI & Tools",
@@ -60,7 +60,7 @@ const projects = [
   },
   {
     title: "SiTiket Telkom Infra",
-    description: "Sistem manajemen tiket gangguan PT Telkom Infrastruktur Indonesia",
+    description: "Sistem manajemen tiket gangguan PT Telkom Infrastruktur Indonesia.",
     image: projectSiTiket,
     tech: ["React", "Node.js", "MySQL"],
     category: "Web Development",
@@ -69,7 +69,7 @@ const projects = [
   },
   {
     title: "SNMB MAN IC Siak",
-    description: "Landing page Seleksi Nasional Murid Baru untuk MAN Insan Cendekia Siak",
+    description: "Landing page Seleksi Nasional Murid Baru untuk MAN Insan Cendekia Siak.",
     image: projectSNMB,
     tech: ["React", "Bootstrap 5"],
     category: "Web Development",
@@ -78,7 +78,7 @@ const projects = [
   },
   {
     title: "Perpus MAN IC Siak",
-    description: "Perpustakaan digital lengkap dengan katalog, peminjaman online, dan riwayat",
+    description: "Perpustakaan digital lengkap dengan katalog, peminjaman online, dan riwayat.",
     image: projectPerpus,
     tech: ["React", "Node.js", "MySQL"],
     category: "Web Development",
@@ -87,7 +87,7 @@ const projects = [
   },
   {
     title: "FireSense: Sistem Peringatan Kebakaran",
-    description: "Sistem IoT cerdas dengan logika Fuzzy untuk deteksi dini potensi kebakaran secara real-time",
+    description: "Aplikasi monitoring kebakaran real-time berbasis IoT untuk mendukung early warning system.",
     image: projectFireSense,
     tech: ["ESP32", "Figma", "Firebase"],
     category: "IoT",
@@ -95,16 +95,16 @@ const projects = [
     codeUrl: ""
   },
   {
-    title: "WhatsApp AI ChatBot",
-    description: "Workflow chatbot WhatsApp otomatis yang ditenagai oleh Gemini AI untuk menjawab pertanyaan dan membuat konten visual",
+    title: "n8n WhatsApp Bot",
+    description: "Bot WhatsApp berbasis n8n untuk otomatisasi respon pertanyaan orang tua siswa di MAN IC Siak.",
     image: projectChatBot,
-    tech: ["n8n", "GeminiAI", "WhatsApp"],
+    tech: ["n8n", "WhatsApp", "Automation"],
     category: "AI & Tools",
     viewUrl: "",
     codeUrl: ""
   },
   {
-    title: "Sistem Informasi Kedisiplinan",
+    title: "Binasiswa MAN IC Siak",
     description: "Sistem informasi untuk pencatatan poin pelanggaran dan data kesehatan siswa secara digital",
     image: projectBinasiswa,
     tech: ["CI4", "Bootstrap 5", "MySQL"],
@@ -132,7 +132,7 @@ const projects = [
   },
   {
     title: "PDF Tools",
-    description: "Serangkaian alat online untuk mengelola PDF—gabung, pisah, dan kompres dengan cepat",
+    description: "Serangkaian alat online untuk mengelola PDF—gabung, pisah, dan kompres dengan cepat.",
     image: projectPDF,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
@@ -140,8 +140,8 @@ const projects = [
     codeUrl: "https://github.com/andre-sptr/pdf-tools"
   },
   {
-    title: "Zona Integritas",
-    description: "Portal layanan digital terintegrasi untuk seluruh civitas akademika MAN Insan Cendekia Siak",
+    title: "Zona Integritas MAN IC Siak",
+    description: "Portal layanan digital terintegrasi untuk seluruh civitas akademika MAN Insan Cendekia Siak.",
     image: projectZI,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
@@ -150,7 +150,7 @@ const projects = [
   },
   {
     title: "AetherNet",
-    description: "Visualisasi real-time koneksi antar node dalam jaringan AetherNet",
+    description: "Visualisasi real-time koneksi antar node dalam jaringan AetherNet.",
     image: projectAetherNet,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
@@ -159,7 +159,7 @@ const projects = [
   },
   {
     title: "CloudShare - File Hosting",
-    description: "Upload, share, and store your files with ease. Modern secure cloud storage platform for images, videos, and documents",
+    description: "Platform cloud storage modern dan aman untuk upload, simpan, dan bagikan file seperti gambar, video, serta dokumen dengan mudah.",
     image: projectFile,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
@@ -168,7 +168,7 @@ const projects = [
   },
   {
     title: "EduForum - MAN IC Siak",
-    description: "Platform sosial edukatif untuk siswa, guru, dan alumni MAN IC Siak",
+    description: "Platform sosial edukatif untuk siswa, guru, dan alumni MAN IC Siak.",
     image: projectEduForum,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
@@ -176,17 +176,18 @@ const projects = [
     codeUrl: "https://github.com/andre-sptr/eduforum"
   },
   {
-    title: "TutorinBang - Platform Tutorial Troubleshooting",
+    title: "TutorinBang - Platform Tutorial",
     description: "Platform tutorial troubleshooting yang menyediakan panduan langkah demi langkah untuk berbagai masalah teknis",
     image: projectTutorin,
     tech: ["React", "Bootsrap 5", "Node.js"],
     gradient: "from-primary/20 to-secondary/10",
+    category: "Web Development",
     viewUrl: "https://tutorinbang.my.id/",
     codeUrl: "https://github.com/andre-sptr/tutorin"
   },
 ];
 
-const categories = ["All", "Web Development", "IoT", "AI & Tools"];
+const categories = ["All", "IoT", "AI & Tools", "Web Development"];
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
@@ -208,7 +209,7 @@ const Projects = () => {
             Featured <span className="text-gradient">Projects</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            A showcase of my recent work, ranging from web applications to IoT solutions.
+            A selection of my latest projects across networking, IoT, AI automation, and web development.
           </p>
 
           {/* Filters */}

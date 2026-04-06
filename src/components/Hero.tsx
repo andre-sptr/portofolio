@@ -48,27 +48,29 @@ const Hero = () => {
           >
             <motion.div variants={itemVariants} className="inline-block mb-4">
               <span className="px-4 py-2 rounded-full glass border border-primary/20 text-sm font-medium text-primary bg-primary/10 backdrop-blur-md hidden sm:inline-block">
-                Available for Freelance & Collaboration
+                Open to Network, IoT & Web Collaboration
               </span>
             </motion.div>
 
-            <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
-              Crafting Digital <br />
-              <span className="text-gradient">Experiences</span> <br />
+            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+              Building Smart
+              <span className="text-gradient block whitespace-nowrap">Solutions</span>
               That Matter.
             </motion.h1>
 
             <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-              I'm <span className="font-semibold text-foreground">Andre Saputra</span>, a passionate Informatics Teacher and Full Stack Developer. I transform complex problems into beautiful, functional, and user-centric digital solutions.
+              I'm <span className="font-semibold text-foreground">Andre Saputra</span>, an Electronics & Telecommunication Engineering graduate with hands-on experience in networking, IoT, automation, and web development.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12">
-              <Button size="lg" className="rounded-full h-12 px-8 text-base bg-primary hover:bg-primary/90 glow-hover group">
-                View Projects
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Button asChild size="lg" className="rounded-full h-12 px-8 text-base bg-primary hover:bg-primary/90 glow-hover group">
+                <a href="#projects">
+                  View Projects
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="rounded-full h-12 px-8 text-base border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors">
-                Contact Me
+              <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-8 text-base border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors">
+                <a href="#contact">Contact Me</a>
               </Button>
             </motion.div>
 

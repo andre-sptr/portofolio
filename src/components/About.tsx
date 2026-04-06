@@ -1,72 +1,83 @@
-import { Code2, Cpu, Workflow, Database, Globe, Server, Briefcase, School, Trophy, Building2, CheckCircle2, GraduationCap, Bot, Network, Cloud, Palette, BarChart } from "lucide-react";
+import { Cpu, Workflow, Globe, Server, Briefcase, School, Building2, CheckCircle2, GraduationCap, Bot, Network, BarChart } from "lucide-react";
 import { motion } from "framer-motion";
 
 const features = [
   {
-    icon: Cpu,
-    title: "Internet of Things (IoT)",
-    description: "Building smart systems using Arduino, ESP32, and Raspberry Pi with C, Python, and MQTT integration.",
+    icon: Network,
+    title: "Networking & Infrastructure",
+    description: "Experienced in network design, routing, configuration, troubleshooting, and fiber optic support, backed by CCNA and BNSP certification.",
   },
   {
     icon: Workflow,
-    title: "Workflow Automation",
-    description: "Automating digital processes using n8n, Zapier, and custom API integrations for seamless productivity.",
+    title: "Automation & AI Workflow",
+    description: "Building automation pipelines with n8n and bot integrations to accelerate reporting, recaps, and communication workflows.",
   },
   {
-    icon: Code2,
-    title: "Web Development",
-    description: "Developing dynamic and responsive web applications with CodeIgniter, JavaScript, and modern UI frameworks.",
+    icon: Cpu,
+    title: "IoT & Embedded Systems",
+    description: "Developing IoT solutions using Arduino, ESP32, Raspberry Pi, and MQTT for real-time monitoring and early warning systems.",
   },
 ];
 
 const skills = [
-  { name: "Frontend Development", level: 90, icon: Globe },
-  { name: "Backend Systems", level: 85, icon: Server },
-  { name: "IoT & Embedded", level: 80, icon: Cpu },
-  { name: "AI & Automation", level: 85, icon: Bot },
-  { name: "Database Management", level: 75, icon: Database },
-  { name: "Network Infrastructure", level: 80, icon: Network },
-  { name: "Cloud Services", level: 75, icon: Cloud },
-  { name: "UI/UX Design", level: 70, icon: Palette },
-  { name: "Data Analysis", level: 80, icon: BarChart },
+  { name: "Network Infrastructure", level: 92, icon: Network },
+  { name: "IoT & Embedded", level: 88, icon: Cpu },
+  { name: "Automation (n8n & Bot)", level: 86, icon: Bot },
+  { name: "Web Development", level: 84, icon: Globe },
+  { name: "Backend Systems", level: 80, icon: Server },
+  { name: "Data Analysis", level: 78, icon: BarChart },
 ];
 
 const experiences = [
   {
     period: "Jan 2026 - Present",
-    role: "Admin Operations",
-    company: "PT Telkom Infrastruktur Indonesia",
-    sub: "Placement: PT Telkom Infrastruktur Indonesia",
+    role: "Admin Operation",
+    company: "PT Telkom Infrastruktur Indonesia (Outsource)",
+    sub: "Pekanbaru",
     icon: Building2,
-    description: "Bertanggung jawab penuh atas administrasi tiket gangguan dan pelaporan data dalam proyek infrastruktur telekomunikasi.",
+    description: "Menangani operasional tiket gangguan jaringan dan memastikan proses penyelesaian berjalan sesuai SLA.",
     details: [
-      "Mengelola laporan tiket gangguan harian menggunakan Advanced Excel & Internal Tools.",
-      "Memastikan validitas data administrasi proyek untuk stakeholder.",
-      "Berkontribusi dalam efisiensi alur kerja administrasi tim teknis lapangan."
+      "Mengelola end-to-end penyelesaian tiket Note-B untuk meminimalkan downtime jaringan.",
+      "Memastikan teknisi memenuhi target Service Level Agreement (SLA).",
+      "Mendukung instalasi dan maintenance kabel Fiber Optic pada lingkungan data center."
     ]
   },
   {
     period: "Jan 2025 - Dec 2025",
-    role: "Guru Informatika & Pembina Robotik",
-    company: "MAN IC Siak",
+    role: "Informatics Teacher & Robotics Coach",
+    company: "MAN Insan Cendekia Siak",
     sub: "Educational Sector",
     icon: School,
-    description: "Mengajar mata pelajaran Informatika dan membina ekstrakurikuler robotik untuk mencetak siswa berprestasi.",
+    description: "Mengajar Informatika dan membina coding, multimedia, serta robotik untuk penguatan kompetensi digital siswa.",
     details: [
-      "Mengampu mapel Informatika (Algoritma, Pemrograman, Dampak Sosial TI).",
-      "Membimbing tim robotik siswa meraih juara dalam kompetisi tingkat regional.",
-      "Mengembangkan modul pembelajaran berbasis proyek (IoT & Coding)."
+      "Menyusun materi pembelajaran Informatika yang komprehensif dan terstruktur.",
+      "Membina kegiatan ekstrakurikuler IT berfokus pada coding, robotik, dan multimedia.",
+      "Melatih tim robotik siswa untuk kompetisi dan event berbasis teknologi."
     ]
   },
   {
-    period: "2021 - 2025",
-    role: "Teknik Elektronika Telekomunikasi",
-    company: "Politeknik Caltex Riau",
-    sub: "Higher Education",
-    icon: GraduationCap,
-    description: "Menyelesaikan studi dengan fokus pada teknologi telekomunikasi dan elektronika modern.",
+    period: "Mar 2024 - Jul 2024",
+    role: "Network Support Intern",
+    company: "PT PLN Icon Plus, Batam",
+    sub: "Internship",
+    icon: Building2,
+    description: "Berperan dalam instalasi dan troubleshooting infrastruktur jaringan pada proyek enterprise dan pemerintah.",
     details: [
-      "IPK 3.67 (2025)"
+      "Membantu instalasi, konfigurasi, dan troubleshooting jaringan on-site.",
+      "Mendukung deployment dan pemeliharaan solusi jaringan untuk klien enterprise dan pemerintah.",
+      "Mengelola rekap data operasional serta dokumentasi aktivitas lapangan."
+    ]
+  },
+  {
+    period: "Oct 2021 - Oct 2025",
+    role: "Bachelor of Applied Engineering",
+    company: "Politeknik Caltex Riau",
+    sub: "Electronics & Telecommunication Engineering",
+    icon: GraduationCap,
+    description: "Lulusan cum laude dengan fokus pada networking, telekomunikasi, IoT, dan embedded systems.",
+    details: [
+      "GPA 3.67/4.00 (Cum Laude).",
+      "Relevant coursework: Networking, Telecommunications, Machine Learning, Electronics, dan Embedded Systems."
     ]
   }
 ];
@@ -90,8 +101,8 @@ const About = () => {
             About <span className="text-gradient">Me</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A passionate developer and designer dedicated to building exceptional digital products
-            that make a difference.
+            Electronics and telecommunication engineering graduate with 1.5+ years of professional
+            experience in networking operations, IoT implementation, automation, and web solutions.
           </p>
         </motion.div>
         
@@ -173,9 +184,9 @@ const About = () => {
           >
             <h3 className="text-3xl font-bold mb-6">Technical <span className="text-gradient">Expertise</span></h3>
             <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-              With a strong foundation in computer science and years of hands-on experience, 
-              I bring a comprehensive skillset to every project. My approach combines technical 
-              precision with creative problem-solving.
+              Certified in Cisco CCNA and BNSP with practical experience across network operations,
+              IoT development, and automation workflows. I focus on reliable implementation,
+              measurable impact, and continuous improvement.
             </p>
             
             <div className="space-y-6">
