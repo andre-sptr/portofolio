@@ -71,7 +71,7 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-24 px-4 relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 px-4 relative overflow-hidden">
         {/* Background Gradients */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2" />
@@ -81,17 +81,17 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Let's <span className="text-gradient">Connect</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Have a project in mind or just want to say hello? I'd love to hear from you.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Contact Info */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
@@ -99,8 +99,8 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="glass-card p-6 md:p-8 rounded-2xl border-l-4 border-l-primary">
-              <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
+            <div className="glass-card p-5 sm:p-6 md:p-8 rounded-2xl border-l-4 border-l-primary">
+              <h3 className="text-xl sm:text-2xl font-bold mb-5 sm:mb-6">Get in Touch</h3>
               <div className="space-y-6">
                 <div className="flex items-center gap-4 group">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
@@ -108,14 +108,14 @@ const Contact = () => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm text-muted-foreground">Email</p>
-                    <a href="mailto:andresaputra07012019@gmail.com" className="text-base md:text-lg font-medium hover:text-primary transition-colors break-all block">
+                    <a href="mailto:andresaputra07012019@gmail.com" className="text-sm sm:text-base md:text-lg font-medium hover:text-primary transition-colors break-all block">
                       andresaputra07012019@gmail.com
                     </a>
                   </div>
                 </div>
                 <div className="pl-16">
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <a href="https://wa.me/6282387025429" target="_blank" rel="noopener noreferrer" className="text-base md:text-lg font-medium hover:text-primary transition-colors">
+                  <a href="https://wa.me/6282387025429" target="_blank" rel="noopener noreferrer" className="text-sm sm:text-base md:text-lg font-medium hover:text-primary transition-colors">
                     +62 823 8702 5429
                   </a>
                 </div>
@@ -123,14 +123,14 @@ const Contact = () => {
             </div>
 
             <div>
-                <h4 className="text-xl font-bold mb-4">Follow Me</h4>
+                <h4 className="text-lg sm:text-xl font-bold mb-4">Follow Me</h4>
                 <div className="flex gap-4">
                     {socialLinks.map((social, index) => (
                     <Button
                         key={index}
                         variant="outline"
                         size="lg"
-                        className="rounded-full w-12 h-12 p-0 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
+                        className="rounded-full w-11 h-11 sm:w-12 sm:h-12 p-0 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
                         onClick={() => window.open(social.url, '_blank')}
                     >
                         <social.icon className="w-5 h-5" />
@@ -145,7 +145,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-6 md:p-8 rounded-2xl"
+            className="glass-card p-5 sm:p-6 md:p-8 rounded-2xl"
           >
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -156,7 +156,7 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your name" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base md:text-sm" />
+                        <Input placeholder="Your name" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -169,7 +169,7 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="your@email.com" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base md:text-sm" />
+                        <Input placeholder="your@email.com" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -182,7 +182,7 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel>Subject</FormLabel>
                       <FormControl>
-                        <Input placeholder="Project Inquiry" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base md:text-sm" />
+                        <Input placeholder="Project Inquiry" {...field} className="bg-white/5 border-white/10 focus:border-primary/50 text-base" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -197,7 +197,7 @@ const Contact = () => {
                       <FormControl>
                         <Textarea 
                           placeholder="Tell me about your project..." 
-                          className="min-h-[150px] bg-white/5 border-white/10 focus:border-primary/50 resize-none text-base md:text-sm" 
+                          className="min-h-[140px] sm:min-h-[150px] bg-white/5 border-white/10 focus:border-primary/50 resize-none text-base" 
                           {...field} 
                         />
                       </FormControl>
@@ -207,7 +207,7 @@ const Contact = () => {
                 />
                 <Button 
                     type="submit" 
-                    className="w-full bg-primary hover:bg-primary/90 text-lg h-12"
+                    className="w-full bg-primary hover:bg-primary/90 text-base sm:text-lg h-11 sm:h-12"
                     disabled={isSubmitting || isSuccess}
                 >
                   {isSubmitting ? (

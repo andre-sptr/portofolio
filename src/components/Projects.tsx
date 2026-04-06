@@ -197,29 +197,29 @@ const Projects = () => {
   );
 
   return (
-    <section id="projects" className="py-24 px-4 bg-black/20">
+    <section id="projects" className="py-16 md:py-24 px-4 bg-black/20">
       <div className="container mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Featured <span className="text-gradient">Projects</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             A selection of my latest projects across networking, IoT, AI automation, and web development.
           </p>
 
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-12">
             {categories.map((category) => (
               <Button
                 key={category}
                 variant={filter === category ? "default" : "outline"}
                 onClick={() => setFilter(category)}
-                className={`rounded-full transition-all duration-300 ${
+                className={`rounded-full text-xs sm:text-sm px-3 sm:px-4 transition-all duration-300 ${
                   filter === category 
                     ? "bg-primary text-white glow-hover" 
                     : "border-white/10 hover:bg-white/5 hover:text-white"
@@ -233,7 +233,7 @@ const Projects = () => {
 
         <motion.div 
           layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8"
         >
           <AnimatePresence>
             {filteredProjects.map((project, index) => (
@@ -257,17 +257,17 @@ const Projects = () => {
                   />
                   
                   {/* Floating Action Buttons */}
-                  <div className="absolute bottom-4 right-4 flex gap-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-20">
+                  <div className="absolute bottom-3 sm:bottom-4 right-3 sm:right-4 flex gap-2 translate-y-0 md:translate-y-full md:group-hover:translate-y-0 transition-transform duration-300 z-20">
                     {project.codeUrl && (
                       <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
-                        <Button size="icon" variant="secondary" className="rounded-full w-10 h-10 hover:scale-110 transition-transform">
+                        <Button size="icon" variant="secondary" className="rounded-full w-9 h-9 sm:w-10 sm:h-10 hover:scale-110 transition-transform">
                           <Github className="w-5 h-5" />
                         </Button>
                       </a>
                     )}
                     {project.viewUrl && (
                       <a href={project.viewUrl} target="_blank" rel="noopener noreferrer">
-                        <Button size="icon" className="rounded-full w-10 h-10 bg-primary hover:bg-primary/90 hover:scale-110 transition-transform">
+                        <Button size="icon" className="rounded-full w-9 h-9 sm:w-10 sm:h-10 bg-primary hover:bg-primary/90 hover:scale-110 transition-transform">
                           <ExternalLink className="w-5 h-5" />
                         </Button>
                       </a>
@@ -275,16 +275,16 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <div className="flex justify-between items-start mb-2">
                     <span className="text-xs font-medium px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
                       {project.category}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-1">
+                  <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors line-clamp-1">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-4 line-clamp-3 sm:line-clamp-2">
                     {project.description}
                   </p>
                   

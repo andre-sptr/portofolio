@@ -11,7 +11,7 @@ import { toast } from "sonner";
 // Configuration
 const API_ENDPOINT = "https://ai.sumopod.com/v1/chat/completions";
 const API_KEY = import.meta.env.VITE_SUMOPOD_API_KEY;
-const MODEL = "claude-sonnet-4";
+const MODEL = "gpt-5";
 const MAX_TOKENS = 500;
 const TEMPERATURE = 0.3;
 
@@ -361,7 +361,7 @@ export function ChatWidget() {
               </div>
               <div className="text-center mt-2">
                  <span className="text-[10px] text-muted-foreground/50">
-                    Powered by OpenAI • GPT-5.1
+                    Powered by OpenAI • GPT-5
                  </span>
               </div>
             </div>

@@ -51,7 +51,7 @@ const Navigation = () => {
                 <span className="relative z-10">A</span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </div>
-              <span className="font-bold text-xl tracking-tight">Andre<span className="text-primary">.dev</span></span>
+              <span className="font-bold text-lg sm:text-xl tracking-tight">Andre<span className="text-primary">.dev</span></span>
             </a>
 
             {/* Desktop Navigation */}
@@ -101,7 +101,7 @@ const Navigation = () => {
                     <a
                       key={link.name}
                       href={link.href}
-                      className="block py-3 px-4 text-muted-foreground hover:text-primary hover:bg-white/5 rounded-lg transition-colors"
+                      className="block py-3 px-4 text-base text-muted-foreground hover:text-primary hover:bg-white/5 rounded-lg transition-colors"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {link.name}

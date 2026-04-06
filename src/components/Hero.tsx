@@ -36,8 +36,8 @@ const Hero = () => {
       {/* Gradient Overlay for better text readability */}
       <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px] -z-10" />
 
-      <div className="container relative z-10 mx-auto mt-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container relative z-10 mx-auto mt-12 md:mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           
           {/* Text Content */}
           <motion.div 
@@ -52,37 +52,37 @@ const Hero = () => {
               </span>
             </motion.div>
 
-            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight">
+            <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 md:mb-6 leading-tight tracking-tight">
               Building Smart
               <span className="text-gradient block whitespace-nowrap">Solutions</span>
               That Matter.
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+            <motion.p variants={itemVariants} className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 mb-7 md:mb-8 leading-relaxed">
               I'm <span className="font-semibold text-foreground">Andre Saputra</span>, an Electronics & Telecommunication Engineering graduate with hands-on experience in networking, IoT, automation, and web development.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12">
-              <Button asChild size="lg" className="rounded-full h-12 px-8 text-base bg-primary hover:bg-primary/90 glow-hover group">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start mb-10 md:mb-12">
+              <Button asChild size="lg" className="rounded-full h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base bg-primary hover:bg-primary/90 glow-hover group">
                 <a href="#projects">
                   View Projects
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full h-12 px-8 text-base border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors">
+              <Button asChild size="lg" variant="outline" className="rounded-full h-11 sm:h-12 px-6 sm:px-8 text-sm sm:text-base border-primary/20 hover:bg-primary/5 hover:text-primary transition-colors">
                 <a href="#contact">Contact Me</a>
               </Button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="flex gap-4 justify-center lg:justify-start items-center text-muted-foreground">
-              <a href="https://github.com/andre-sptr" className="p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
-                <Github className="w-6 h-6" />
+            <motion.div variants={itemVariants} className="flex gap-2 sm:gap-4 justify-center lg:justify-start items-center text-muted-foreground">
+              <a href="https://github.com/andre-sptr" className="p-2.5 sm:p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
+                <Github className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
-              <a href="https://www.linkedin.com/in/andre-sptr" className="p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
-                <Linkedin className="w-6 h-6" />
+              <a href="https://www.linkedin.com/in/andre-sptr" className="p-2.5 sm:p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
+                <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
-              <a href="https://www.instagram.com/andree.sptrr/" className="p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
-                <Instagram className="w-6 h-6" />
+              <a href="https://www.instagram.com/andree.sptrr/" className="p-2.5 sm:p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200">
+                <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
               </a>
               <a href="mailto:andresaputra07012019@gmail.com" className="p-3 hover:text-primary transition-colors transform hover:scale-110 duration-200 hidden sm:inline-block">
                 <Mail className="w-6 h-6" />
@@ -102,7 +102,7 @@ const Hero = () => {
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
+            <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-[2rem] rotate-6 opacity-20 blur-2xl animate-pulse" />
               <div className="absolute inset-0 border-2 border-primary/30 rounded-[2rem] rotate-3" />
               <div className="relative w-full h-full rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl glass-card">
@@ -115,7 +115,7 @@ const Hero = () => {
               
               {/* Floating Cards/Badges */}
               <motion.div 
-                className="absolute -bottom-6 -left-6 glass p-4 rounded-xl border border-white/10 shadow-lg"
+                className="absolute -bottom-6 -left-6 glass p-4 rounded-xl border border-white/10 shadow-lg hidden sm:block"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >

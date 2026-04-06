@@ -84,7 +84,7 @@ const experiences = [
 
 const About = () => {
   return (
-    <section id="about" className="py-24 px-4 relative overflow-hidden">
+    <section id="about" className="py-16 md:py-24 px-4 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10" />
@@ -95,18 +95,18 @@ const About = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             About <span className="text-gradient">Me</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Electronics and telecommunication engineering graduate with 1.5+ years of professional
             experience in networking operations, IoT implementation, automation, and web solutions.
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-3 gap-5 md:gap-8 mb-14 md:mb-20">
           {features.map((feature, index) => (
             <motion.div 
               key={index}
@@ -115,21 +115,21 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               whileHover={{ y: -5 }}
-              className="glass-card p-8 rounded-2xl group hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+              className="glass-card p-5 sm:p-8 rounded-2xl group hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full -mr-4 -mt-4 transition-all group-hover:scale-110" />
               
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                <feature.icon className="w-7 h-7 text-primary" />
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{feature.description}</p>
             </motion.div>
           ))}
         </div>
 
         {/* Skills Section */}
-        <div className="grid md:grid-cols-2 gap-12 items-stretch">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-stretch">
           <motion.div
              initial={{ opacity: 0, x: 20 }}
              whileInView={{ opacity: 1, x: 0 }}
@@ -137,10 +137,10 @@ const About = () => {
              transition={{ duration: 0.6 }}
              className="relative pl-0 md:pl-8"
           >
-             <h3 className="text-3xl font-bold mb-6">Professional <span className="text-gradient">Journey</span></h3>
+             <h3 className="text-2xl sm:text-3xl font-bold mb-5 md:mb-6">Professional <span className="text-gradient">Journey</span></h3>
              <div className="space-y-8">
                 {experiences.map((exp, index) => (
-                  <div key={index} className="relative pl-8 border-l-2 border-primary/20 pb-8 last:pb-0 last:border-0">
+                  <div key={index} className="relative pl-6 sm:pl-8 border-l-2 border-primary/20 pb-7 sm:pb-8 last:pb-0 last:border-0">
                     <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-background" />
                     
                     <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-primary font-medium">
@@ -150,7 +150,7 @@ const About = () => {
                       </span>
                     </div>
 
-                    <h4 className="text-xl font-bold text-foreground">{exp.role}</h4>
+                    <h4 className="text-lg sm:text-xl font-bold text-foreground">{exp.role}</h4>
                     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground mb-4 mt-1">
                       <div className="flex items-center gap-1.5">
                         <exp.icon className="w-4 h-4 text-secondary" />
@@ -164,7 +164,7 @@ const About = () => {
 
                     <ul className="space-y-3 bg-white/5 p-4 rounded-xl border border-white/5">
                       {exp.details.map((detail, i) => (
-                        <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground/90">
+                        <li key={i} className="flex items-start gap-3 text-xs sm:text-sm text-muted-foreground/90">
                           <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                           <span>{detail}</span>
                         </li>
@@ -180,10 +180,10 @@ const About = () => {
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.6 }}
-             className="glass-card p-8 rounded-2xl h-full"
+             className="glass-card p-5 sm:p-8 rounded-2xl h-full"
           >
-            <h3 className="text-3xl font-bold mb-6">Technical <span className="text-gradient">Expertise</span></h3>
-            <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-5 md:mb-6">Technical <span className="text-gradient">Expertise</span></h3>
+            <p className="text-muted-foreground mb-6 md:mb-8 text-sm sm:text-base md:text-lg leading-relaxed">
               Certified in Cisco CCNA and BNSP with practical experience across network operations,
               IoT development, and automation workflows. I focus on reliable implementation,
               measurable impact, and continuous improvement.
@@ -193,7 +193,7 @@ const About = () => {
               {skills.map((skill, index) => (
                 <div key={index}>
                   <div className="flex justify-between mb-2">
-                    <span className="font-medium flex items-center gap-2">
+                    <span className="font-medium text-sm sm:text-base flex items-center gap-2">
                       <skill.icon className="w-4 h-4 text-primary" />
                       {skill.name}
                     </span>
