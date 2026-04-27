@@ -81,12 +81,40 @@ export default {
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 20px hsl(45 100% 51% / 0.3)" },
-          "50%": { boxShadow: "0 0 30px hsl(45 100% 51% / 0.5)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsl(246 58% 52% / 0.2)" },
+          "50%": { boxShadow: "0 0 32px hsl(246 58% 52% / 0.4)" },
         },
         "float": {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
+        },
+        "shimmer": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        "slide-up": {
+          "0%": { opacity: "0", transform: "translateY(40px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.92)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        "gradient-x": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
+        "bounce-gentle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
+        "draw-line": {
+          "0%": { height: "0%" },
+          "100%": { height: "100%" },
+        },
+        "pulse-ring": {
+          "0%": { transform: "scale(0.8)", opacity: "1" },
+          "80%, 100%": { transform: "scale(2)", opacity: "0" },
         },
       },
       animation: {
@@ -96,6 +124,13 @@ export default {
         "fade-in-up": "fade-in-up 0.8s ease-out",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
         "float": "float 3s ease-in-out infinite",
+        "shimmer": "shimmer 2.5s ease-in-out infinite",
+        "slide-up": "slide-up 0.6s ease-out",
+        "scale-in": "scale-in 0.4s ease-out",
+        "gradient-x": "gradient-x 4s ease-in-out infinite",
+        "bounce-gentle": "bounce-gentle 2s ease-in-out infinite",
+        "draw-line": "draw-line 1s ease-out forwards",
+        "pulse-ring": "pulse-ring 1.5s ease-out infinite",
       },
     },
   },

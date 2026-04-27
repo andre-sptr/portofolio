@@ -1,46 +1,20 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Cloud, MessageSquare, Bot } from 'lucide-react';
+import { FileText, ArrowUpRight } from 'lucide-react';
 
 const tools = [
-  {
-    name: "Reka AI",
-    description: "A real-time AI coding assistant that transforms your ideas into executable code instantly.",
-    url: "https://ai.andresptr.site/",
-    icon: "/logo/reka.png",
-    color: "secondary",
-    isImage: true
-  },
-  {
-    name: "AI Finance",
-    description: "An intelligent finance tracker powered by AI to simplify your money management.",
-    url: "https://fiscal.andresptr.site/",
-    icon: "/logo/fiscal.png",
-    color: "primary",
-    isImage: true
-  },
   {
     name: "PDF Tools",
     description: "Comprehensive suite for merging, splitting, and converting PDF documents.",
     url: "https://pdf.andresptr.site",
-    icon: FileText,
-    color: "secondary",
-    isImage: false
-  },
-  {
-    name: "EduForum",
-    description: "The exclusive interactive learning platform for MAN IC Siak. Empowers students and teachers with tools.",
-    url: "https://eduforum.flamyheart.site/",
-    icon: "/logo/manic.png",
-    color: "primary",
-    isImage: true
+    icon: "",
+    accent: "from-primary/10 to-primary/5",
+    isImage: false,
   },
 ];
 
 const FreeTools = () => {
   return (
-    <section id="tools" className="py-16 md:py-20 relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="tools" className="py-16 md:py-24 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -z-10" />
 
@@ -52,43 +26,56 @@ const FreeTools = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4 gradient-text">Free Tools</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+            Free <span className="text-gradient">Tools</span>
+          </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             Explore our collection of free, powerful tools designed to boost your productivity.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {tools.map((tool, index) => (
-            <motion.a
-              key={tool.name}
-              href={tool.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group glass-card p-5 sm:p-6 rounded-2xl border-white/5 hover:border-primary/50 transition-all hover:-translate-y-2"
-            >
-              <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-5 sm:mb-6 transition-transform group-hover:scale-110 ${
-                tool.color === 'primary' ? 'bg-primary/10 text-primary' : 'bg-secondary/10 text-secondary'
-              }`}>
-                {tool.isImage ? (
-                  <img src={tool.icon as string} alt={tool.name} className="w-9 h-9 sm:w-10 sm:h-10 object-contain" />
-                ) : (
-                  <tool.icon className="w-7 h-7 sm:w-8 sm:h-8" />
-                )}
-              </div>
-              
-              <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                {tool.name}
-              </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground">
-                {tool.description}
-              </p>
-            </motion.a>
-          ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {tools.map((tool, index) => {
+            const isLarge = index < 2;
+            return (
+              <motion.a
+                key={tool.name}
+                href={tool.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`group glass-card rounded-2xl hover:border-primary/40 transition-all duration-300 relative overflow-hidden ${isLarge ? "lg:col-span-2 p-6 sm:p-8" : "p-5 sm:p-6"}`}
+                whileHover={{ y: -4 }}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${tool.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                <div className="relative z-10">
+                  <div className={`${isLarge ? "w-16 h-16" : "w-14 h-14"} rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:shadow-[var(--glow-primary)] group-hover:scale-105`}>
+                    {tool.isImage ? (
+                      <img src={tool.icon} alt={tool.name} className={`${isLarge ? "w-10 h-10" : "w-8 h-8"} object-contain`} />
+                    ) : (
+                      <FileText className={`${isLarge ? "w-8 h-8" : "w-7 h-7"} text-primary`} />
+                    )}
+                  </div>
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className={`${isLarge ? "text-xl sm:text-2xl" : "text-lg sm:text-xl"} font-bold mb-2 group-hover:text-primary transition-colors`}>
+                        {tool.name}
+                      </h3>
+                      <p className={`${isLarge ? "text-sm" : "text-xs sm:text-sm"} text-muted-foreground leading-relaxed`}>
+                        {tool.description}
+                      </p>
+                    </div>
+                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 mt-1">
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </motion.a>
+            );
+          })}
         </div>
       </div>
     </section>
