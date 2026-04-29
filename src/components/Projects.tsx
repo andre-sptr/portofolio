@@ -163,7 +163,7 @@ const projects = [
     image: projectFile,
     tech: ["React", "Bootstrap 5", "Node.js"],
     category: "Web Development",
-    viewUrl: "",
+    viewUrl: "https://file.andresptr.site/",
     codeUrl: "https://github.com/andre-sptr/file",
   },
   {
@@ -224,11 +224,10 @@ const Projects = () => {
               <button
                 key={category}
                 onClick={() => setFilter(category)}
-                className={`relative px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
-                  filter === category
+                className={`relative px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${filter === category
                     ? "text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 {filter === category && (
                   <motion.span
@@ -306,9 +305,8 @@ const Projects = () => {
                 <div className="p-5 sm:p-6">
                   <div className="flex items-center gap-2 mb-2.5">
                     <span
-                      className={`w-2 h-2 rounded-full ${
-                        categoryColors[project.category] || "bg-muted-foreground"
-                      }`}
+                      className={`w-2 h-2 rounded-full ${categoryColors[project.category] || "bg-muted-foreground"
+                        }`}
                     />
                     <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">
                       {project.category}
