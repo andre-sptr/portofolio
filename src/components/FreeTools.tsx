@@ -1,13 +1,21 @@
 import { motion } from 'framer-motion';
-import { FileText, ArrowUpRight } from 'lucide-react';
+import { FileText, ArrowUpRight, CloudUpload } from 'lucide-react';
 
 const tools = [
   {
     name: "PDF Tools",
     description: "Comprehensive suite for merging, splitting, and converting PDF documents.",
     url: "https://pdf.andresptr.site",
-    icon: "",
+    icon: FileText,
     accent: "from-primary/10 to-primary/5",
+    isImage: false,
+  },
+  {
+    name: "File Hosting",
+    description: "Secure and reliable file hosting solution for all your storage needs.",
+    url: "https://file.andresptr.site",
+    icon: CloudUpload,
+    accent: "from-secondary/10 to-secondary/5",
     isImage: false,
   },
 ];
@@ -37,6 +45,7 @@ const FreeTools = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {tools.map((tool, index) => {
             const isLarge = index < 2;
+            const ToolIcon = tool.icon;
             return (
               <motion.a
                 key={tool.name}
@@ -53,11 +62,7 @@ const FreeTools = () => {
                 <div className={`absolute inset-0 bg-gradient-to-br ${tool.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <div className="relative z-10">
                   <div className={`${isLarge ? "w-16 h-16" : "w-14 h-14"} rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:shadow-[var(--glow-primary)] group-hover:scale-105`}>
-                    {tool.isImage ? (
-                      <img src={tool.icon} alt={tool.name} className={`${isLarge ? "w-10 h-10" : "w-8 h-8"} object-contain`} />
-                    ) : (
-                      <FileText className={`${isLarge ? "w-8 h-8" : "w-7 h-7"} text-primary`} />
-                    )}
+                    <ToolIcon className={`${isLarge ? "w-8 h-8" : "w-7 h-7"} text-primary`} />
                   </div>
                   <div className="flex items-start justify-between gap-3">
                     <div>
