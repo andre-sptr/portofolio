@@ -102,7 +102,7 @@ function OrbitRing({
   const size = radius * 2;
   return (
     <motion.div
-      className="absolute rounded-full border border-white/[0.05]"
+      className="absolute rounded-full border border-[hsl(30_20%_25%/0.10)]"
       style={{ width: size, height: size, top: "50%", left: "50%", marginTop: -radius, marginLeft: -radius }}
       animate={{ rotate: direction * 360 }}
       transition={{ duration: durationSec, ease: "linear", repeat: Infinity }}
@@ -114,14 +114,14 @@ function OrbitRing({
         return (
           <motion.div
             key={item.label}
-            className="group absolute w-11 h-11 flex items-center justify-center rounded-xl bg-[var(--surface-1)] border border-white/[0.07] text-[10px] font-bold text-muted-foreground hover:text-[var(--electric)] hover:border-[var(--electric)]/30 transition-colors cursor-default select-none"
+            className="btn-tactile group absolute w-11 h-11 flex items-center justify-center rounded-xl text-[10px] font-bold text-muted-foreground hover:text-primary cursor-default select-none"
             style={{ left: x, top: y }}
             animate={{ rotate: direction * -360 }}
             transition={{ duration: durationSec, ease: "linear", repeat: Infinity }}
           >
             {item.abbr}
             <span
-              className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 rounded-md bg-[var(--surface-1)] border border-white/[0.07] text-[10px] font-medium text-[var(--warm-white)] whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity z-20"
+              className="label-plate pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 rounded-md text-[10px] font-medium text-foreground whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity z-20"
             >
               {item.label}
             </span>
@@ -147,8 +147,9 @@ function PanelWhoIAm() {
             fontSize: "clamp(6rem,18vw,18rem)",
             fontFamily: "Clash Display, sans-serif",
             fontWeight: 700,
-            color: "transparent",
-            WebkitTextStroke: "1px rgba(99,102,241,0.06)",
+            color: "var(--surface-0)",
+            textShadow:
+              "-1px -1px 1px hsl(0 0% 100% / 0.9), 1px 1px 1px hsl(30 20% 20% / 0.16)",
             letterSpacing: "-0.04em",
             whiteSpace: "nowrap",
           }}
@@ -161,11 +162,11 @@ function PanelWhoIAm() {
       <div className="relative z-10 max-w-xl px-8 md:px-16">
         <p className="section-label mb-5">01 / About</p>
         <h2
-          className="text-4xl md:text-5xl font-bold text-[var(--warm-white)] mb-6 leading-[0.95]"
+          className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-[0.95]"
           style={{ fontFamily: "Clash Display, sans-serif" }}
         >
           The person<br />
-          <span className="text-gradient">behind the code</span>
+          <span className="text-primary">behind the code</span>
         </h2>
         <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-md">
           Electronics & Telecommunication Engineering graduate from Politeknik
@@ -177,10 +178,10 @@ function PanelWhoIAm() {
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="px-5 py-3 rounded-xl bg-[var(--surface-1)] border border-white/[0.07] flex flex-col items-center min-w-[88px]"
+              className="well-inset px-5 py-3 rounded-xl flex flex-col items-center min-w-[88px]"
             >
               <span
-                className="text-2xl font-bold text-[var(--electric)] font-mono-tight tabular-nums"
+                className="text-2xl font-bold text-primary font-mono-tight tabular-nums"
               >
                 {s.value}
               </span>
@@ -204,7 +205,7 @@ function PanelJourney({ cardsRef }: { cardsRef: React.RefObject<HTMLDivElement> 
         <div>
           <p className="section-label mb-3">02 / Journey</p>
           <h2
-            className="text-3xl md:text-4xl font-bold text-[var(--warm-white)] leading-[0.95]"
+            className="text-3xl md:text-4xl font-bold text-foreground leading-[0.95]"
             style={{ fontFamily: "Clash Display, sans-serif" }}
           >
             Where<br />I've<br />been
@@ -215,26 +216,26 @@ function PanelJourney({ cardsRef }: { cardsRef: React.RefObject<HTMLDivElement> 
           {EXPERIENCES.map((exp, i) => (
             <div
               key={i}
-              className="exp-card glass-card p-5 rounded-2xl border border-white/[0.06] hover:border-[var(--electric)]/25 transition-all duration-300 group"
+              className="exp-card panel-raised panel-hoverable p-5 rounded-2xl group"
             >
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-7 h-7 rounded-lg bg-[var(--electric)]/10 flex items-center justify-center">
-                  <exp.icon className="w-3.5 h-3.5 text-[var(--electric)]" />
+                <div className="well-inset w-7 h-7 rounded-lg flex items-center justify-center">
+                  <exp.icon className="w-3.5 h-3.5 text-primary" />
                 </div>
                 <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
                   {exp.period}
                 </span>
               </div>
-              <h4 className="font-bold text-[var(--warm-white)] text-sm mb-1 leading-snug group-hover:text-[var(--electric)] transition-colors">
+              <h4 className="font-bold text-foreground text-sm mb-1 leading-snug group-hover:text-primary transition-colors">
                 {exp.role}
               </h4>
-              <p className="text-[11px] text-[var(--electric)]/60 mb-3 font-medium">
+              <p className="text-[11px] text-primary/70 mb-3 font-medium">
                 {exp.company}
               </p>
               <ul className="space-y-1.5">
                 {exp.details.map((d, j) => (
                   <li key={j} className="flex items-start gap-2 text-[11px] text-muted-foreground leading-snug">
-                    <CheckCircle2 className="w-3 h-3 text-[var(--electric)]/40 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-3 h-3 text-primary/50 shrink-0 mt-0.5" />
                     {d}
                   </li>
                 ))}
@@ -256,7 +257,7 @@ function PanelStack() {
         <div>
           <p className="section-label mb-3">03 / Stack</p>
           <h2
-            className="text-3xl md:text-4xl font-bold text-[var(--warm-white)] leading-[0.95] mb-4"
+            className="text-3xl md:text-4xl font-bold text-foreground leading-[0.95] mb-4"
             style={{ fontFamily: "Clash Display, sans-serif" }}
           >
             Tools I<br />live with
@@ -273,8 +274,8 @@ function PanelStack() {
         <div className="flex items-center justify-center">
           <div className="relative" style={{ width: 480, height: 480 }}>
             {/* Center core */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-[var(--electric)]/15 border border-[var(--electric)]/25 flex items-center justify-center z-10">
-              <div className="w-7 h-7 rounded-full bg-[var(--electric)]/50 border border-[var(--electric)]/60 animate-pulse" />
+            <div className="well-inset absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center z-10">
+              <div className="led led-green w-7 h-7 led-blink" />
             </div>
 
             {ORBIT_RINGS.map((ring, i) => (
@@ -296,8 +297,8 @@ function AboutMobile() {
         {/* Who */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <p className="section-label mb-3">01 / About</p>
-          <h2 className="text-3xl font-bold text-[var(--warm-white)] mb-4 leading-tight" style={{ fontFamily: "Clash Display, sans-serif" }}>
-            The person<br /><span className="text-gradient">behind the code</span>
+          <h2 className="text-3xl font-bold text-foreground mb-4 leading-tight" style={{ fontFamily: "Clash Display, sans-serif" }}>
+            The person<br /><span className="text-primary">behind the code</span>
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
             Electronics & Telecommunication Engineering graduate. Network engineer,
@@ -305,8 +306,8 @@ function AboutMobile() {
           </p>
           <div className="flex gap-3 flex-wrap">
             {STATS.map((s) => (
-              <div key={s.label} className="px-4 py-2.5 rounded-xl bg-[var(--surface-1)] border border-white/[0.07] flex flex-col items-center min-w-[80px]">
-                <span className="text-xl font-bold text-[var(--electric)] font-mono-tight tabular-nums">{s.value}</span>
+              <div key={s.label} className="well-inset px-4 py-2.5 rounded-xl flex flex-col items-center min-w-[80px]">
+                <span className="text-xl font-bold text-primary font-mono-tight tabular-nums">{s.value}</span>
                 <span className="section-label mt-0.5">{s.label}</span>
               </div>
             ))}
@@ -316,17 +317,17 @@ function AboutMobile() {
         {/* Journey */}
         <div>
           <p className="section-label mb-3">02 / Journey</p>
-          <h3 className="text-2xl font-bold text-[var(--warm-white)] mb-6" style={{ fontFamily: "Clash Display, sans-serif" }}>Where I've been</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-6" style={{ fontFamily: "Clash Display, sans-serif" }}>Where I've been</h3>
           <div className="space-y-3">
             {EXPERIENCES.map((exp, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                className="glass-card p-4 rounded-xl border border-white/[0.06]">
+                className="panel-raised p-4 rounded-xl">
                 <div className="flex items-center gap-2 mb-2">
-                  <exp.icon className="w-3.5 h-3.5 text-[var(--electric)]" />
+                  <exp.icon className="w-3.5 h-3.5 text-primary" />
                   <span className="text-[10px] text-muted-foreground uppercase tracking-wider">{exp.period}</span>
                 </div>
-                <p className="font-bold text-[var(--warm-white)] text-sm">{exp.role}</p>
-                <p className="text-[11px] text-[var(--electric)]/60 mt-0.5">{exp.company}</p>
+                <p className="font-bold text-foreground text-sm">{exp.role}</p>
+                <p className="text-[11px] text-primary/70 mt-0.5">{exp.company}</p>
               </motion.div>
             ))}
           </div>
@@ -335,10 +336,10 @@ function AboutMobile() {
         {/* Stack */}
         <div>
           <p className="section-label mb-3">03 / Stack</p>
-          <h3 className="text-2xl font-bold text-[var(--warm-white)] mb-4" style={{ fontFamily: "Clash Display, sans-serif" }}>Tools I live with</h3>
+          <h3 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: "Clash Display, sans-serif" }}>Tools I live with</h3>
           <div className="flex flex-wrap gap-2">
             {ORBIT_RINGS.flatMap((r) => r.items).map((item) => (
-              <span key={item.label} className="px-3 py-1.5 rounded-lg bg-[var(--surface-1)] border border-white/[0.07] text-xs font-medium text-muted-foreground">
+              <span key={item.label} className="label-plate px-3 py-1.5 rounded-lg text-xs font-medium text-muted-foreground">
                 {item.label}
               </span>
             ))}

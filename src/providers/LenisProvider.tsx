@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from '@/lib/motion/gsap';
 
@@ -14,35 +14,36 @@ interface LenisProviderProps {
 }
 
 export function LenisProvider({ children }: LenisProviderProps) {
-  const lenisRef = useRef<Lenis | null>(null);
+  const [lenis, setLenis] = useState<Lenis | null>(null);
 
   useEffect(() => {
-    const lenis = new Lenis({
+    const instance = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       smoothWheel: true,
     });
 
-    lenisRef.current = lenis;
+    // Storing the imperative Lenis instance in state is intentional — it lets
+    // consumers (e.g. Navigation) read it via useLenis() after mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setLenis(instance);
 
-    // Proxy Lenis scroll events to GSAP ScrollTrigger so pinning works correctly
-    lenis.on('scroll', ScrollTrigger.update);
+    instance.on('scroll', ScrollTrigger.update);
 
-    // Drive Lenis via GSAP ticker so both share the same animation frame
-    const tickerCb = (time: number) => lenis.raf(time * 1000);
+    const tickerCb = (time: number) => instance.raf(time * 1000);
     gsap.ticker.add(tickerCb);
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(1000, 16);
 
     return () => {
       gsap.ticker.remove(tickerCb);
-      lenis.destroy();
-      lenisRef.current = null;
+      instance.destroy();
+      setLenis(null);
     };
   }, []);
 
   return (
-    <LenisContext.Provider value={lenisRef.current}>
+    <LenisContext.Provider value={lenis}>
       {children}
     </LenisContext.Provider>
   );

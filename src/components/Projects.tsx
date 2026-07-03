@@ -12,10 +12,9 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-    className="relative rounded-2xl overflow-hidden border border-white/10 flex flex-col"
-    style={{ background: "var(--surface-1)" }}
+    className="panel-raised panel-hoverable relative rounded-2xl overflow-hidden flex flex-col"
   >
-    <BrowserFrame url={project.viewUrl} className="rounded-none border-0 border-b border-white/[0.05]">
+    <BrowserFrame url={project.viewUrl} className="rounded-none border-0 border-b border-border">
       <div className="relative h-44 sm:h-56 overflow-hidden">
         <img
           src={project.image}
@@ -41,8 +40,8 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => (
     <div className="p-5 flex flex-col gap-3 flex-1">
       <div>
         <h3
-          className="text-xl font-bold leading-tight"
-          style={{ fontFamily: "'Clash Display', sans-serif", color: "var(--warm-white)" }}
+          className="text-xl font-bold leading-tight text-foreground"
+          style={{ fontFamily: "'Clash Display', sans-serif" }}
         >
           {project.title}
         </h3>
@@ -58,7 +57,7 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => (
           {project.metrics.map((m) => (
             <div
               key={m.label}
-              className="flex items-baseline gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/10"
+              className="well-inset flex items-baseline gap-1.5 px-2.5 py-1 rounded-lg"
             >
               <span
                 className="text-xs font-semibold font-mono-tight tabular-nums"
@@ -78,7 +77,7 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => (
         {project.tech.map((t) => (
           <span
             key={t}
-            className="text-xs px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-muted-foreground"
+            className="label-plate text-xs px-2.5 py-1 rounded-full text-muted-foreground"
           >
             {t}
           </span>
@@ -88,7 +87,7 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => (
       <div className="flex gap-2 pt-1 mt-auto flex-wrap">
         <Link
           to={`/project/${project.id}`}
-          className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-medium border border-white/20 text-muted-foreground hover:text-foreground hover:border-white/40 transition-all min-h-[44px]"
+          className="btn-tactile flex items-center gap-2 px-5 py-3 rounded-full text-xs font-medium text-foreground min-h-[44px]"
         >
           <BookOpen className="w-3.5 h-3.5" /> Case Study
         </Link>
@@ -97,8 +96,8 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => (
             href={project.viewUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-medium min-h-[44px] hover:gap-3 transition-all"
-            style={{ background: project.accent, color: "#0a0a0f" }}
+            className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-semibold min-h-[44px] hover:gap-3 hover:brightness-110 transition-all shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_2px_6px_rgba(60,50,35,0.25)]"
+            style={{ background: project.accent, color: "#fff" }}
           >
             Live <ExternalLink className="w-3.5 h-3.5" />
           </a>
@@ -108,7 +107,7 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => (
             href={project.codeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-3 rounded-full text-xs font-medium border border-white/20 text-muted-foreground hover:text-foreground hover:border-white/40 transition-all min-h-[44px]"
+            className="btn-tactile flex items-center gap-2 px-5 py-3 rounded-full text-xs font-medium text-foreground min-h-[44px]"
           >
             <Github className="w-3.5 h-3.5" /> Code
           </a>
@@ -134,8 +133,8 @@ const Projects = () => (
       >
         <span className="section-label mb-3 block">Selected Work</span>
         <h2
-          className="text-3xl md:text-4xl font-bold leading-tight"
-          style={{ fontFamily: "'Clash Display', sans-serif", color: "var(--warm-white)" }}
+          className="text-3xl md:text-4xl font-bold leading-tight text-foreground"
+          style={{ fontFamily: "'Clash Display', sans-serif" }}
         >
           Projects
         </h2>

@@ -41,24 +41,24 @@ const BrowserFrame: React.FC<BrowserFrameProps> = ({ url, children, className })
   return (
     <div
       className={cn(
-        "rounded-xl overflow-hidden border border-white/[0.06] bg-[var(--surface-1)]",
+        "rounded-xl overflow-hidden border border-border bg-[var(--surface-1)]",
         className,
       )}
     >
       {/* Chrome bar */}
-      <div className="flex items-center gap-3 px-3 py-2 bg-[var(--surface-2)] border-b border-white/[0.05]">
-        {/* Traffic lights */}
+      <div className="flex items-center gap-3 px-3 py-2 bg-[linear-gradient(180deg,#F2EFE7,#E2DCCE)] border-b border-border">
+        {/* Traffic lights — 3D kecil */}
         <div className="flex items-center gap-1.5 shrink-0">
-          <span className="block w-2.5 h-2.5 rounded-full bg-[#ff5f56]/75" />
-          <span className="block w-2.5 h-2.5 rounded-full bg-[#ffbd2e]/75" />
-          <span className="block w-2.5 h-2.5 rounded-full bg-[#27c93f]/75" />
+          <span className="block w-2.5 h-2.5 rounded-full bg-[#ff5f56] shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),inset_0_-1px_1px_rgba(0,0,0,0.25)]" />
+          <span className="block w-2.5 h-2.5 rounded-full bg-[#ffbd2e] shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),inset_0_-1px_1px_rgba(0,0,0,0.25)]" />
+          <span className="block w-2.5 h-2.5 rounded-full bg-[#27c93f] shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),inset_0_-1px_1px_rgba(0,0,0,0.25)]" />
         </div>
 
         {/* URL bar */}
         <div className="flex-1 flex items-center justify-center min-w-0">
-          <div className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[var(--surface-0)]/60 border border-white/[0.04] min-w-0 max-w-full">
+          <div className="well-inset flex items-center gap-1.5 px-3 py-1 rounded-md min-w-0 max-w-full">
             <LockIcon className="w-3 h-3 text-muted-foreground/60 shrink-0" />
-            <span className="text-[11px] text-muted-foreground/85 font-mono-tight tracking-tight truncate">
+            <span className="text-[11px] text-muted-foreground font-mono-tight tracking-tight truncate">
               {displayUrl}
             </span>
           </div>
@@ -67,8 +67,8 @@ const BrowserFrame: React.FC<BrowserFrameProps> = ({ url, children, className })
         {/* Spacer to balance traffic lights */}
         <div className="w-[42px] shrink-0 hidden sm:flex items-center justify-end">
           {isLive && (
-            <span className="flex items-center gap-1 text-[9px] uppercase tracking-[0.18em] text-[#27c93f]/70 font-mono-tight">
-              <span className="block w-1 h-1 rounded-full bg-[#27c93f]/80" />
+            <span className="flex items-center gap-1 text-[9px] uppercase tracking-[0.18em] text-[hsl(var(--led-green))] font-mono-tight">
+              <span className="led led-green block w-1.5 h-1.5" />
               Live
             </span>
           )}

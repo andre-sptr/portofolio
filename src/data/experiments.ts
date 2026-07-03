@@ -37,6 +37,18 @@ export const experiments: ExperimentItem[] = [
     reducedMotionFallback: "Categorized skill chips with no physics simulation.",
   },
   {
+    id: "signal-storm",
+    title: "Signal Storm",
+    category: "WebGL",
+    description: "A GPU particle field drifting through a curl-noise current, repulsed by your cursor.",
+    tech: ["Three.js", "GLSL", "React"],
+    interaction: "Move cursor to disturb the field. Click for a shockwave. Toggle Calm, Storm, or Vortex.",
+    status: "live",
+    route: "/lab?experiment=signal-storm",
+    accent: "#818cf8",
+    reducedMotionFallback: "Still snapshot of a calm particle constellation.",
+  },
+  {
     id: "project-collision-wall",
     title: "Project Collision Wall",
     category: "Gravity",

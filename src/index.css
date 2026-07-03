@@ -1,53 +1,76 @@
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
 @layer base {
-  /* ─── Dark-only design tokens ─── */
+  /* ─── Skeuomorphism light tokens — "The Workbench": paper + ink + brass ─── */
   :root {
-    --background: 228 22% 6%;
-    --foreground: 220 18% 94%;
+    --background: 40 30% 94%;
+    --foreground: 30 10% 16%;
 
-    --card: 228 20% 9%;
-    --card-foreground: 220 18% 94%;
+    --card: 42 35% 97%;
+    --card-foreground: 30 10% 16%;
 
-    --popover: 228 20% 9%;
-    --popover-foreground: 220 18% 94%;
+    --popover: 42 35% 97%;
+    --popover-foreground: 30 10% 16%;
 
-    --primary: 246 70% 68%;
+    --primary: 226 55% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 192 72% 55%;
+    --secondary: 27 60% 42%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 228 18% 13%;
-    --muted-foreground: 220 12% 68%;
+    --muted: 40 18% 88%;
+    --muted-foreground: 30 8% 38%;
 
-    --accent: 228 18% 13%;
-    --accent-foreground: 220 18% 94%;
+    --accent: 40 18% 88%;
+    --accent-foreground: 30 10% 16%;
 
     --destructive: 0 62% 40%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 228 16% 20%;
-    --input: 228 16% 20%;
-    --ring: 246 70% 68%;
-    --radius: 0.75rem;
+    --border: 38 16% 78%;
+    --input: 38 16% 74%;
+    --ring: 226 55% 40%;
+    --radius: 0.625rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(246 70% 68%), hsl(192 72% 55%));
-    --glow-primary: 0 0 40px hsl(246 70% 68% / 0.25);
-    --glow-secondary: 0 0 40px hsl(192 72% 55% / 0.25);
-    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.2), 0 4px 12px hsl(0 0% 0% / 0.15);
-    --shadow-card-hover: 0 4px 16px hsl(0 0% 0% / 0.3), 0 8px 32px hsl(246 70% 68% / 0.1);
+    /* Surfaces — kertas */
+    --surface-0: #EFEBE2;  /* paper dasar   */
+    --surface-1: #F7F4EC;  /* panel raised  */
+    --surface-2: #E6E1D6;  /* well inset    */
 
-    /* Gravity Well scroll colors */
-    --surface-0: #0a0a0f;
-    --surface-1: #0d0d14;
-    --surface-2: #111118;
-    --electric: hsl(246 70% 68%);
-    --electric-dim: hsl(246 70% 68% / 0.15);
-    --warm-white: #f0f0f5;
+    /* Ink blue — pewaris "electric". Alias --electric dipertahankan selama transisi. */
+    --ink: hsl(226 55% 40%);
+    --electric: hsl(226 55% 40%);
+    --electric-dim: hsl(226 55% 40% / 0.12);
+    --warm-white: #2B2520; /* legacy alias: dulu teks terang di bg gelap, kini ink */
+
+    /* LED status */
+    --led-green: 152 45% 34%;
+    --led-amber: 40 90% 42%;
+    --led-red: 4 70% 46%;
+
+    /* Sistem shadow skeuo — satu arah cahaya dari atas */
+    --shadow-raised:
+      inset 0 1px 0 hsl(0 0% 100% / 0.85),
+      0 1px 2px hsl(30 20% 20% / 0.10),
+      0 4px 12px hsl(30 20% 20% / 0.08);
+    --shadow-raised-hover:
+      inset 0 1px 0 hsl(0 0% 100% / 0.9),
+      0 2px 4px hsl(30 20% 20% / 0.12),
+      0 10px 24px hsl(30 20% 20% / 0.10);
+    --shadow-pressed:
+      inset 0 2px 4px hsl(30 20% 20% / 0.18),
+      inset 0 1px 2px hsl(30 20% 20% / 0.12);
+
+    /* Alias legacy agar komponen yang belum di-sweep tetap wajar */
+    --shadow-card: var(--shadow-raised);
+    --shadow-card-hover: var(--shadow-raised-hover);
+    --gradient-primary: linear-gradient(135deg, hsl(226 55% 40%), hsl(27 60% 42%));
+    --glow-primary: 0 2px 10px hsl(226 55% 40% / 0.22);
+    --glow-secondary: 0 2px 10px hsl(27 60% 42% / 0.22);
 
     /* Font families */
     --font-display: 'Clash Display', 'Satoshi', system-ui, sans-serif;
@@ -55,7 +78,7 @@
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
   }
 
-  /* Keep .dark alias for any shadcn components that read it */
+  /* ─── Dark scope — dipakai HANYA oleh halaman Lab ("ruang eksperimen gelap") ─── */
   .dark {
     --background: 228 22% 6%;
     --foreground: 220 18% 94%;
@@ -76,6 +99,29 @@
     --border: 228 16% 20%;
     --input: 228 16% 20%;
     --ring: 246 70% 68%;
+
+    --surface-0: #0a0a0f;
+    --surface-1: #0d0d14;
+    --surface-2: #111118;
+    --ink: hsl(246 70% 68%);
+    --electric: hsl(246 70% 68%);
+    --electric-dim: hsl(246 70% 68% / 0.15);
+    --warm-white: #f0f0f5;
+
+    --shadow-raised: 0 1px 3px hsl(0 0% 0% / 0.2), 0 4px 12px hsl(0 0% 0% / 0.15);
+    --shadow-raised-hover: 0 4px 16px hsl(0 0% 0% / 0.3), 0 8px 32px hsl(246 70% 68% / 0.1);
+    --shadow-pressed: inset 0 2px 4px hsl(0 0% 0% / 0.5);
+    --shadow-card: var(--shadow-raised);
+    --shadow-card-hover: var(--shadow-raised-hover);
+    --gradient-primary: linear-gradient(135deg, hsl(246 70% 68%), hsl(192 72% 55%));
+    --glow-primary: 0 0 40px hsl(246 70% 68% / 0.25);
+    --glow-secondary: 0 0 40px hsl(192 72% 55% / 0.25);
+  }
+
+  /* Treatment letterpress tidak relevan di scope gelap (Lab) */
+  .dark .section-label,
+  .dark .text-engraved {
+    text-shadow: none;
   }
 
   * {
@@ -120,149 +166,203 @@
 }
 
 @layer utilities {
-  /* ─── Text Gradient ─── */
-  .text-gradient {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* ─── Animated Gradient Text ─── */
-  .text-gradient-animated {
-    background: linear-gradient(
-      90deg,
-      hsl(var(--primary)),
-      hsl(var(--secondary)),
-      hsl(var(--primary))
-    );
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-shift 4s ease-in-out infinite;
-  }
-
-  /* ─── Glassmorphism ─── */
-  .glass {
-    background-color: hsl(var(--background) / 0.7);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid hsl(var(--border) / 0.5);
-  }
-
-  .glass-card {
-    background-color: hsl(var(--card) / 0.8);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+  /* ─── Panel raised — kartu kertas/panel emboss (pengganti .glass-card) ─── */
+  /* Catatan: utility panel/well/plate TIDAK menyetel border-radius —
+     selalu set rounded-* di call site agar tidak bentrok cascade. */
+  .panel-raised {
+    background: linear-gradient(180deg, var(--surface-1), #F1EDE2);
     border: 1px solid hsl(var(--border));
-    box-shadow: var(--shadow-card);
-    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    box-shadow: var(--shadow-raised);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
   }
 
-  .glass-card:hover {
-    box-shadow: var(--shadow-card-hover);
+  .panel-hoverable:hover {
+    box-shadow: var(--shadow-raised-hover);
+    transform: translateY(-1px);
   }
 
-  /* ─── Glow Hover ─── */
-  .glow-hover {
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  /* ─── Panel metal — aluminium sikat untuk toolbar/panel instrumen ─── */
+  .panel-metal {
+    background:
+      repeating-linear-gradient(90deg, hsl(0 0% 100% / 0.05) 0 1px, transparent 1px 3px),
+      linear-gradient(180deg, #F2EFE7, #DDD7C9);
+    border: 1px solid hsl(38 14% 68%);
+    border-top-color: hsl(40 20% 86%);
+    box-shadow:
+      var(--shadow-raised),
+      inset 0 -1px 0 hsl(30 20% 20% / 0.08);
   }
 
-  .glow-hover:hover {
-    box-shadow: var(--glow-primary);
+  /* ─── Well inset — input, layar, track (permukaan cekung) ─── */
+  .well-inset {
+    background: var(--surface-2);
+    border: 1px solid hsl(38 16% 70%);
+    box-shadow:
+      var(--shadow-pressed),
+      0 1px 0 hsl(0 0% 100% / 0.8);
   }
 
-  /* ─── Grain Overlay ─── */
-  /* Applied via ::before on sections that need texture */
+  /* ─── Tombol tactile — raised, tertekan saat :active ─── */
+  .btn-tactile {
+    background: linear-gradient(180deg, #FBF8F1, #EDE8DC);
+    border: 1px solid hsl(38 16% 70%);
+    border-bottom-color: hsl(38 16% 60%);
+    box-shadow: var(--shadow-raised);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  }
+
+  .btn-tactile:hover {
+    box-shadow: var(--shadow-raised-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn-tactile:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-pressed);
+  }
+
+  .btn-tactile-primary {
+    background: linear-gradient(180deg, hsl(226 55% 50%), hsl(226 55% 37%));
+    border: 1px solid hsl(226 55% 30%);
+    color: #fff;
+    text-shadow: 0 1px 1px hsl(226 55% 22% / 0.5);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.28),
+      0 1px 2px hsl(30 20% 20% / 0.18),
+      0 4px 12px hsl(226 55% 40% / 0.28);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  }
+
+  .btn-tactile-primary:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.3),
+      0 2px 4px hsl(30 20% 20% / 0.2),
+      0 8px 20px hsl(226 55% 40% / 0.32);
+  }
+
+  .btn-tactile-primary:active {
+    transform: translateY(1px);
+    filter: brightness(0.97);
+    box-shadow:
+      inset 0 2px 4px hsl(226 55% 20% / 0.45),
+      inset 0 1px 2px hsl(226 55% 20% / 0.3);
+  }
+
+  /* ─── Teks engraved (letterpress) & blind emboss ─── */
+  .text-engraved {
+    color: hsl(30 8% 38%);
+    text-shadow: 0 1px 0 hsl(0 0% 100% / 0.8);
+  }
+
+  .text-emboss {
+    color: var(--surface-0);
+    text-shadow:
+      -1px -1px 1px hsl(0 0% 100% / 0.9),
+      1px 1px 1px hsl(30 20% 20% / 0.16);
+  }
+
+  /* ─── LED fisik — pengganti dot animate-ping ─── */
+  .led {
+    position: relative;
+    display: inline-block;
+    border-radius: 9999px;
+    background:
+      radial-gradient(circle at 32% 28%, hsl(0 0% 100% / 0.85), transparent 42%),
+      var(--led-c, hsl(var(--led-green)));
+    box-shadow:
+      inset 0 -1px 2px hsl(30 20% 20% / 0.3),
+      0 1px 1px hsl(0 0% 100% / 0.7),
+      0 0 8px var(--led-glow, hsl(var(--led-green) / 0.55));
+  }
+
+  .led-green { --led-c: hsl(var(--led-green)); --led-glow: hsl(var(--led-green) / 0.55); }
+  .led-amber { --led-c: hsl(var(--led-amber)); --led-glow: hsl(var(--led-amber) / 0.55); }
+  .led-red   { --led-c: hsl(var(--led-red));   --led-glow: hsl(var(--led-red) / 0.55); }
+
+  .led-blink {
+    animation: led-pulse 2.4s ease-in-out infinite;
+  }
+
+  /* ─── Label plate — pelat label kecil (chip, badge) ─── */
+  .label-plate {
+    background: linear-gradient(180deg, #F5F1E8, #E7E1D3);
+    border: 1px solid hsl(38 16% 70%);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.8),
+      0 1px 2px hsl(30 20% 20% / 0.12);
+  }
+
+  /* ─── Sekrup — detail sudut panel instrumen ─── */
+  .screw {
+    position: relative;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: radial-gradient(circle at 35% 30%, #FDFBF6, #C9C2B2 62%, #A79F8D);
+    box-shadow:
+      inset 0 -1px 1px hsl(30 20% 20% / 0.4),
+      0 1px 1px hsl(0 0% 100% / 0.8);
+  }
+
+  .screw::after {
+    content: '';
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    top: 50%;
+    height: 1px;
+    background: hsl(30 12% 45% / 0.7);
+    transform: rotate(45deg);
+  }
+
+  /* ─── Stitched — jahitan untuk aksen fabric/leather (pakai hemat) ─── */
+  .stitched {
+    position: relative;
+  }
+
+  .stitched::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    pointer-events: none;
+    border: 1px dashed hsl(27 40% 50% / 0.45);
+    border-radius: calc(var(--radius) - 4px);
+  }
+
+  /* ─── Blueprint grid — latar graph paper untuk Hero ─── */
+  .blueprint-grid {
+    background-image:
+      linear-gradient(hsl(226 55% 40% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(226 55% 40% / 0.05) 1px, transparent 1px),
+      linear-gradient(hsl(226 55% 40% / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(226 55% 40% / 0.08) 1px, transparent 1px);
+    background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px;
+    mask-image: linear-gradient(180deg, black 0%, black 68%, transparent 100%);
+  }
+
+  /* ─── Grain — tekstur serat kertas (fixed overlay) ─── */
   .grain::before {
     content: '';
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 100;
-    opacity: 0.035;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 128px;
   }
 
-  /* ─── Mobile CSS gradient background (replaces Three.js on mobile) ─── */
+  /* ─── Mobile hero background — versi paper (pengganti Three.js di mobile) ─── */
   .mobile-bg-gradient {
     background:
-      radial-gradient(ellipse 80% 60% at 20% 20%, hsl(246 70% 68% / 0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 80% at 80% 80%, hsl(192 72% 55% / 0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 20% 20%, hsl(226 55% 40% / 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 80%, hsl(27 60% 42% / 0.05) 0%, transparent 60%),
       var(--surface-0);
-    animation: ambient-shift 12s ease-in-out infinite alternate;
-  }
-
-  .command-center-grid {
-    opacity: 0.48;
-    background-image:
-      linear-gradient(hsl(246 70% 68% / 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(192 72% 55% / 0.04) 1px, transparent 1px);
-    background-size: 72px 72px;
-    mask-image: linear-gradient(180deg, transparent 0%, black 14%, black 78%, transparent 100%);
-  }
-
-  .command-center-shell {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid hsl(var(--border) / 0.72);
-    background:
-      linear-gradient(180deg, hsl(228 20% 10% / 0.9), hsl(228 22% 7% / 0.86)),
-      linear-gradient(135deg, hsl(246 70% 68% / 0.08), hsl(192 72% 55% / 0.04));
-    box-shadow:
-      0 24px 80px hsl(0 0% 0% / 0.38),
-      inset 0 1px 0 hsl(0 0% 100% / 0.06);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-  }
-
-  .command-center-shell::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      180deg,
-      transparent 0%,
-      hsl(192 72% 55% / 0.08) 46%,
-      transparent 100%
-    );
-    transform: translateY(-100%);
-    animation: command-scan 7s linear infinite;
-  }
-
-  .command-center-shell::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    border: 1px solid hsl(0 0% 100% / 0.04);
-    border-radius: inherit;
-  }
-
-  .command-system-row {
-    position: relative;
-    overflow: hidden;
-    border-left-width: 3px;
-    border-radius: 8px;
-  }
-
-  .command-system-row::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(90deg, hsl(0 0% 100% / 0.05), transparent 34%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .command-system-row:hover::after {
-    opacity: 1;
   }
 
   /* ─── GSAP ScrollTrigger pinned section helpers ─── */
@@ -276,50 +376,6 @@
     will-change: transform;
   }
 
-  /* ─── Shimmer Effect ─── */
-  .shimmer {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shimmer::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      hsl(var(--primary) / 0.08) 50%,
-      transparent 100%
-    );
-    animation: shimmer 2.5s ease-in-out infinite;
-  }
-
-  /* ─── Gradient Border ─── */
-  .gradient-border {
-    position: relative;
-    background: hsl(var(--card));
-    border-radius: var(--radius);
-  }
-
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 1px;
-    border-radius: inherit;
-    background: var(--gradient-primary);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .gradient-border:hover::before {
-    opacity: 1;
-  }
-
   /* ─── Section number label ─── */
   .section-label {
     font-family: var(--font-mono);
@@ -327,13 +383,15 @@
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: hsl(var(--primary) / 0.7);
+    color: hsl(var(--primary) / 0.85);
+    text-shadow: 0 1px 0 hsl(0 0% 100% / 0.7);
   }
 
   .font-mono-tight {
     font-family: var(--font-mono);
     font-feature-settings: 'ss01', 'cv11';
   }
+
 }
 
 /* ─── Scrollbar ─── */
@@ -346,7 +404,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
+  background: #C9C2B4;
   border-radius: 2px;
 }
 
@@ -356,15 +414,21 @@
 
 /* ─── Selection ─── */
 ::selection {
-  background: hsl(var(--primary) / 0.2);
+  background: hsl(var(--primary) / 0.18);
   color: hsl(var(--primary));
 }
 
-/* ─── Section separator — subtle gradient fade between sections ─── */
+/* ─── Section separator — garis emboss (alur di kertas) ─── */
 .section-sep {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.12), transparent);
+  height: 2px;
   border: none;
+  background: linear-gradient(
+    180deg,
+    hsl(30 20% 25% / 0.12) 0,
+    hsl(30 20% 25% / 0.12) 1px,
+    hsl(0 0% 100% / 0.85) 1px,
+    hsl(0 0% 100% / 0.85) 2px
+  );
 }
 
 /* ─── Scroll dot indicator used in Hero ─── */
@@ -378,24 +442,9 @@
 }
 
 /* ─── Keyframes ─── */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-@keyframes ambient-shift {
-  0% { background-position: 0% 0%, 100% 100%; }
-  100% { background-position: 20% 20%, 80% 80%; }
-}
-
-@keyframes command-scan {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+@keyframes led-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.35); }
 }
 
 @keyframes char-in {
@@ -410,8 +459,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .command-center-shell::before {
+  .led-blink,
+  .scroll-dot {
     animation: none;
-    opacity: 0;
   }
 }

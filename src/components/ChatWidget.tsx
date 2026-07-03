@@ -249,13 +249,11 @@ export function ChatWidget() {
           >
             <Button
               size="lg"
-              className="rounded-full w-14 h-14 bg-primary hover:bg-primary/90 shadow-lg glow-hover p-0 relative"
+              className="btn-tactile-primary rounded-full w-14 h-14 p-0 relative"
               onClick={() => { setIsOpen(true); setIsMinimized(false); }}
             >
               <Bot className="w-7 h-7 text-primary-foreground" />
-              <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-background">
-                <span className="absolute inset-0 rounded-full bg-green-400 animate-ping opacity-75" />
-              </span>
+              <span className="led led-green led-blink absolute -top-0.5 -right-0.5 w-3 h-3 border-2 border-background" />
             </Button>
           </motion.div>
         )}
@@ -269,7 +267,7 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-6 right-6 z-50 w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] flex flex-col glass-card rounded-2xl shadow-[var(--shadow-elevated)] overflow-hidden"
+            className="panel-raised fixed bottom-6 right-6 z-50 w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] flex flex-col rounded-2xl shadow-[var(--shadow-raised-hover)] overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-border bg-muted/30 backdrop-blur-md">
@@ -280,7 +278,7 @@ export function ChatWidget() {
                 <div>
                   <h3 className="font-bold text-foreground text-sm">Andre's Assistant</h3>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-green-500" />
+                    <span className="led led-green w-2 h-2" />
                     <span className="text-xs text-muted-foreground">Online</span>
                   </div>
                 </div>

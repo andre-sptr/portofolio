@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import { ChatWidget } from "./components/ChatWidget";
 import Analytics from "./components/Analytics";
 import Signature from "./components/Signature";
+import ScrollToTop from "./components/ScrollToTop";
 
 const Lab = React.lazy(() => import("./pages/Lab"));
 const ProjectDetail = React.lazy(() => import("./pages/ProjectDetail"));
@@ -27,7 +28,8 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <HelmetProvider>
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      {/* storageKey baru: pengunjung lama menyimpan "dark" di key lama */}
+      <ThemeProvider defaultTheme="light" storageKey="andresptr-theme">
         <LenisProvider>
           <TooltipProvider>
             <Signature />
@@ -35,11 +37,20 @@ const App = () => (
             <Toaster />
             <Sonner />
             <BrowserRouter>
+              <ScrollToTop />
               <Analytics />
               <React.Suspense fallback={<RouteFallback />}>
                 <Routes>
                   <Route path="/" element={<Index />} />
-                  <Route path="/lab" element={<Lab />} />
+                  {/* Lab tetap gelap by design — "ruang eksperimen"; scope .dark membalik semua token */}
+                  <Route
+                    path="/lab"
+                    element={
+                      <div className="dark min-h-screen bg-[var(--surface-0)] text-foreground">
+                        <Lab />
+                      </div>
+                    }
+                  />
                   <Route path="/project/:slug" element={<ProjectDetail />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />

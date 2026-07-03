@@ -48,7 +48,7 @@ const FreeTools = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Free <span className="text-gradient">Tools</span>
+            Free <span className="text-primary">Tools</span>
           </h2>
           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
             Explore our collection of free, powerful tools designed to boost your productivity.
@@ -69,12 +69,12 @@ const FreeTools = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`group glass-card rounded-2xl hover:border-primary/40 transition-all duration-300 relative overflow-hidden ${isLarge ? "lg:col-span-2 p-6 sm:p-8" : "p-5 sm:p-6"}`}
+                className={`group panel-raised panel-hoverable rounded-2xl relative overflow-hidden ${isLarge ? "lg:col-span-2 p-6 sm:p-8" : "p-5 sm:p-6"}`}
                 whileHover={{ y: -4 }}
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${tool.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <div className="relative z-10">
-                  <div className={`${isLarge ? "w-16 h-16" : "w-14 h-14"} rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:shadow-[var(--glow-primary)] group-hover:scale-105`}>
+                  <div className={`${isLarge ? "w-16 h-16" : "w-14 h-14"} well-inset rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-105`}>
                     <ToolIcon className={`${isLarge ? "w-8 h-8" : "w-7 h-7"} text-primary`} />
                   </div>
                   <div className="flex items-start justify-between gap-3">
@@ -86,7 +86,7 @@ const FreeTools = () => {
                         {tool.description}
                       </p>
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300 mt-1">
+                    <div className="btn-tactile w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-muted-foreground group-hover:text-primary transition-all duration-300 mt-1">
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>

@@ -17,11 +17,11 @@ const Signature = () => {
 `;
 
     const styles = {
-      art: "color:#818cf8;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.1;",
-      hi: "color:#000;font-size:14px;font-weight:600;",
-      label: "color:#7c6df2;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;",
-      value: "color:#b0b0bc;font-size:12px;",
-      hint: "color:#5f5f6c;font-size:11px;font-style:italic;",
+      art: "color:#3B55C0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.1;",
+      hi: "color:#2B2520;font-size:14px;font-weight:600;",
+      label: "color:#3B55C0;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;",
+      value: "color:#6E675C;font-size:12px;",
+      hint: "color:#8A8375;font-size:11px;font-style:italic;",
     };
 
     console.log(`%c${art}`, styles.art);

@@ -39,18 +39,15 @@ const NowBlock = () => {
           className="flex items-end justify-between mb-12 flex-wrap gap-4"
         >
           <div>
-            <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--electric)] mb-3 flex items-center gap-2">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute h-full w-full rounded-full bg-[var(--electric)] opacity-60" />
-                <span className="relative flex rounded-full h-1.5 w-1.5 bg-[var(--electric)]" />
-              </span>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-3 flex items-center gap-2">
+              <span className="led led-green led-blink h-1.5 w-1.5" />
               Now
             </p>
             <h2
-              className="text-3xl md:text-4xl font-bold text-[var(--warm-white)] leading-[0.95]"
+              className="text-3xl md:text-4xl font-bold text-foreground leading-[0.95]"
               style={{ fontFamily: "'Clash Display', sans-serif" }}
             >
-              What I&apos;m <span className="text-gradient">up to</span>
+              What I&apos;m <span className="text-primary">up to</span>
             </h2>
           </div>
           <p className="text-[11px] text-muted-foreground/70 font-mono-tight tracking-wide">
@@ -58,7 +55,8 @@ const NowBlock = () => {
           </p>
         </motion.div>
 
-        <ul className="divide-y divide-white/[0.05] border-y border-white/[0.05]">
+        {/* Garis pensil ala notepad */}
+        <ul className="divide-y divide-[hsl(30_20%_25%/0.12)] border-y border-[hsl(30_20%_25%/0.12)]">
           {NOW_ITEMS.map((item, i) => (
             <motion.li
               key={item.label}
@@ -71,7 +69,7 @@ const NowBlock = () => {
               <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground/70 font-medium font-mono-tight">
                 {item.label}
               </span>
-              <p className="text-base sm:text-lg text-[var(--warm-white)] leading-relaxed">
+              <p className="text-base sm:text-lg text-foreground leading-relaxed">
                 {item.text}
               </p>
             </motion.li>

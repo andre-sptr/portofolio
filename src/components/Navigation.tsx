@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback, useRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Menu, Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence, useScroll, useSpring, useMotionValue } from "framer-motion";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { useLenis } from "@/providers/LenisProvider";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -32,7 +34,7 @@ const MagneticNavLink = ({
   name: string;
   isActive: boolean;
   prefersReduced: boolean;
-  onClick: () => void;
+  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) => {
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
@@ -67,7 +69,7 @@ const MagneticNavLink = ({
       {isActive && (
         <motion.span
           layoutId="nav-pill"
-          className="absolute inset-0 bg-primary/10 rounded-full border border-primary/20"
+          className="well-inset absolute inset-0 rounded-full"
           transition={{ type: "spring", stiffness: 350, damping: 30 }}
         />
       )}
@@ -81,6 +83,9 @@ const Navigation = () => {
   const prefersReduced = usePrefersReducedMotion();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState(getInitialActiveSection);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const lenis = useLenis();
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -139,31 +144,101 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleTop);
   }, []);
 
-  const handleNavClick = useCallback((href: string) => {
-    setActiveSection(href);
-  }, []);
+  const scrollToTarget = useCallback(
+    (target: HTMLElement | number) => {
+      if (lenis) {
+        lenis.scrollTo(target, {
+          offset: typeof target === "number" ? 0 : -80,
+          duration: 1.1,
+        });
+      } else {
+        const top =
+          typeof target === "number"
+            ? target
+            : target.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    },
+    [lenis]
+  );
+
+  const scrollToHashWithRetry = useCallback(
+    (id: string) => {
+      let attempts = 0;
+      const tryIt = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          scrollToTarget(el);
+        } else if (attempts++ < 60) {
+          requestAnimationFrame(tryIt);
+        }
+      };
+      tryIt();
+    },
+    [scrollToTarget]
+  );
+
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent, href: string) => {
+      e.preventDefault();
+
+      if (href === "/") {
+        if (location.pathname !== "/") {
+          navigate("/");
+        }
+        scrollToTarget(0);
+        setActiveSection("/");
+        window.history.replaceState(null, "", "/");
+        return;
+      }
+
+      if (href.startsWith("/#")) {
+        const id = href.slice(2);
+        if (location.pathname !== "/") {
+          navigate(href);
+          // Wait for Index + lazy chunks to mount, then scroll
+          setTimeout(() => scrollToHashWithRetry(id), 80);
+        } else {
+          scrollToHashWithRetry(id);
+          window.history.replaceState(null, "", `#${id}`);
+        }
+        setActiveSection(href);
+        return;
+      }
+
+      // Other internal routes (e.g. /lab)
+      if (href.startsWith("/")) {
+        navigate(href);
+        setActiveSection(href);
+      }
+    },
+    [location.pathname, navigate, scrollToHashWithRetry, scrollToTarget]
+  );
 
   return (
     <>
-      {/* Scroll Progress Bar */}
+      {/* Scroll Progress Bar — gauge tembaga */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-secondary origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-[3px] bg-[linear-gradient(180deg,hsl(27_70%_52%),hsl(27_60%_38%))] shadow-[0_1px_1px_hsl(0_0%_100%/0.6)] origin-left z-[100]"
         style={{ scaleX }}
       />
 
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? "glass border-b py-2 shadow-[var(--shadow-card)]"
+          ? "panel-metal rounded-none border-x-0 border-t-0 py-2"
           : "bg-transparent py-4"
           }`}
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="/" className="flex items-center gap-2.5 group">
-              <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white font-bold text-lg overflow-hidden group-hover:shadow-[var(--glow-primary)] transition-shadow duration-300">
-                <span className="relative z-10">A</span>
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <a
+              href="/"
+              onClick={(e) => handleNavClick(e, "/")}
+              className="flex items-center gap-2.5 group"
+            >
+              <div className="label-plate relative flex h-9 w-9 items-center justify-center rounded-[8px] text-lg font-bold text-primary transition-shadow duration-300 group-hover:shadow-[var(--shadow-raised-hover)]">
+                <span className="relative z-10 [text-shadow:0_1px_0_hsl(0_0%_100%/0.8)]">A</span>
               </div>
               <span className="font-bold text-lg sm:text-xl tracking-tight">
                 Andre<span className="text-primary">.dev</span>
@@ -179,14 +254,14 @@ const Navigation = () => {
                   name={link.name}
                   isActive={activeSection === link.href}
                   prefersReduced={prefersReduced}
-                  onClick={() => handleNavClick(link.href)}
+                  onClick={(e) => handleNavClick(e, link.href)}
                 />
               ))}
               <div className="w-px h-6 bg-border mx-2" />
-              <a href="/#contact">
+              <a href="/#contact" onClick={(e) => handleNavClick(e, "/#contact")}>
                 <Button
                   size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 glow-hover transition-all duration-300 rounded-full"
+                  className="btn-tactile-primary rounded-full"
                 >
                   Let's Talk
                 </Button>
@@ -218,7 +293,7 @@ const Navigation = () => {
                 exit={{ opacity: 0, height: 0 }}
                 className="md:hidden overflow-hidden"
               >
-                <div className="glass-card mt-3 rounded-2xl p-3 flex flex-col gap-1 max-h-[80vh] overflow-y-auto">
+                <div className="panel-raised mt-3 rounded-2xl p-3 flex flex-col gap-1 max-h-[80vh] overflow-y-auto">
                   {navLinks.map((link) => {
                     const isActive = activeSection === link.href;
                     return (
@@ -229,8 +304,8 @@ const Navigation = () => {
                           ? "text-primary bg-primary/10 font-medium"
                           : "text-muted-foreground hover:text-foreground hover:bg-accent"
                           }`}
-                        onClick={() => {
-                          handleNavClick(link.href);
+                        onClick={(e) => {
+                          handleNavClick(e, link.href);
                           setIsMobileMenuOpen(false);
                         }}
                       >
@@ -241,9 +316,12 @@ const Navigation = () => {
                   <div className="pt-2 border-t border-border mt-1">
                     <a
                       href="/#contact"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={(e) => {
+                        handleNavClick(e, "/#contact");
+                        setIsMobileMenuOpen(false);
+                      }}
                     >
-                      <Button className="w-full bg-primary hover:bg-primary/90 rounded-full">
+                      <Button className="btn-tactile-primary w-full rounded-full">
                         <Sparkles className="w-4 h-4 mr-2" />
                         Let's Talk
                       </Button>

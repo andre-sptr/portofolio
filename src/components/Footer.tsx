@@ -12,17 +12,17 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative border-t border-border">
-      {/* Gradient Divider */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+    <footer className="relative border-t border-border bg-[#E9E3D5]">
+      {/* Jahitan kraft di tepi atas */}
+      <div className="absolute top-2 left-4 right-4 h-px border-t border-dashed border-[hsl(27_40%_50%/0.45)]" />
 
       <div className="container mx-auto px-4 py-10 md:py-14">
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-start">
           {/* Brand */}
           <div>
             <a href="#" className="flex items-center gap-2.5 mb-4 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
-                A
+              <div className="label-plate flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold text-primary">
+                <span className="[text-shadow:0_1px_0_hsl(0_0%_100%/0.8)]">A</span>
               </div>
               <span className="font-bold text-lg tracking-tight">
                 Andre<span className="text-primary">.dev</span>
@@ -74,7 +74,7 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-200"
+                  className="btn-tactile flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:text-primary"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -100,7 +100,7 @@ const Footer = () => {
             whileHover={{ y: -2 }}
           >
             <span>Back to top</span>
-            <div className="w-7 h-7 rounded-full border border-border flex items-center justify-center group-hover:border-primary/40 group-hover:bg-primary/5 transition-all">
+            <div className="btn-tactile flex h-7 w-7 items-center justify-center rounded-full group-hover:text-primary">
               <ArrowUp className="w-3.5 h-3.5" />
             </div>
           </motion.button>

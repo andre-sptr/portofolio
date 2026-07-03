@@ -10,6 +10,12 @@ const FallingStackExperiment = React.lazy(() =>
   }))
 );
 
+const SignalStormExperiment = React.lazy(() =>
+  import("@/components/lab/SignalStormExperiment").then((module) => ({
+    default: module.SignalStormExperiment,
+  }))
+);
+
 function LabLoading() {
   return (
     <div className="flex min-h-[24rem] items-center justify-center rounded-lg border border-white/10 bg-white/[0.03]">
@@ -42,6 +48,8 @@ export default function Lab() {
           <Suspense fallback={<LabLoading />}>
             {activeExperiment.id === "falling-stack" ? (
               <FallingStackExperiment experiment={activeExperiment} />
+            ) : activeExperiment.id === "signal-storm" ? (
+              <SignalStormExperiment experiment={activeExperiment} />
             ) : (
               <div className="rounded-lg border border-white/10 bg-white/[0.03] p-8">
                 <p className="section-label mb-3">Concept</p>

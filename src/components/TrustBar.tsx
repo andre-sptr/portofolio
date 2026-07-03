@@ -11,7 +11,7 @@ const TrustBar = () => {
   return (
     <section
       aria-label="Organizations Andre has worked with"
-      className="py-14 lg:py-20 border-y border-white/[0.04]"
+      className="py-14 lg:py-20 border-y border-border/60"
       style={{ background: "var(--surface-0)" }}
     >
       <div className="max-w-6xl mx-auto px-6">
@@ -34,7 +34,7 @@ const TrustBar = () => {
           {ORGS.map((org) => (
             <span
               key={org}
-              className="text-sm md:text-base font-medium text-muted-foreground/50 hover:text-[var(--warm-white)] transition-colors duration-500 tracking-wide cursor-default"
+              className="text-engraved text-sm md:text-base font-medium hover:text-foreground transition-colors duration-500 tracking-wide cursor-default"
               style={{ fontFamily: "'Clash Display', sans-serif" }}
             >
               {org}

@@ -55,9 +55,9 @@ function pingOne(origin: string, timeoutMs = 4000): Promise<number> {
 
 const DOT_CLASS: Record<Health, string> = {
   loading: "bg-muted-foreground/40",
-  ok: "bg-[#27c93f]/85",
-  warn: "bg-[#ffbd2e]/85",
-  down: "bg-[#ff5f56]/85",
+  ok: "led led-green",
+  warn: "led led-amber",
+  down: "led led-red",
 };
 
 const STATUS_LABEL: Record<Health, string> = {
@@ -110,15 +110,15 @@ const NetworkStatus = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="mt-10 rounded-xl border border-white/[0.05] bg-[var(--surface-1)]/40 overflow-hidden"
+      className="panel-raised mt-10 rounded-xl overflow-hidden"
     >
-      <div className="flex items-center justify-between px-5 py-3 border-b border-white/[0.04]">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-border/60">
         <p className="section-label">Network status</p>
         <p className="text-[10px] text-muted-foreground/60 font-mono-tight tracking-wide">
           {checkedAt ? `Last check ${checkedAt}` : "Checking…"}
         </p>
       </div>
-      <ul className="divide-y divide-white/[0.04]">
+      <ul className="divide-y divide-border/50">
         {readings.map((r) => (
           <li
             key={r.origin}
@@ -130,7 +130,7 @@ const NetworkStatus = () => {
                   r.health === "loading" ? "animate-pulse" : ""
                 }`}
               />
-              <span className="text-sm text-[var(--warm-white)] font-mono-tight truncate">
+              <span className="text-sm text-foreground font-mono-tight truncate">
                 {r.label}
               </span>
             </div>

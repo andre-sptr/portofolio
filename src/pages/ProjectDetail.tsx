@@ -62,18 +62,18 @@ const ProjectDetail = () => {
       />
 
       {/* Top bar */}
-      <div className="sticky top-0 z-30 backdrop-blur-md bg-[var(--surface-0)]/70 border-b border-white/[0.06]">
+      <div className="sticky top-0 z-30 bg-[var(--surface-1)] border-b border-border shadow-[var(--shadow-raised)]">
         <div className="mx-auto max-w-5xl px-6 h-14 flex items-center justify-between">
           {/* Full anchor so the homepage scrolls to the #projects section */}
           <a
             href="/#projects"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[var(--electric)] transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Kembali ke Projects
           </a>
-          <Link to="/" className="font-bold tracking-tight text-[var(--warm-white)]">
-            Andre<span className="text-[var(--electric)]">.dev</span>
+          <Link to="/" className="font-bold tracking-tight text-foreground">
+            Andre<span className="text-primary">.dev</span>
           </Link>
         </div>
       </div>
@@ -96,8 +96,8 @@ const ProjectDetail = () => {
             </span>
           </div>
           <h1
-            className="text-4xl md:text-6xl font-bold leading-tight mb-2"
-            style={{ fontFamily: "'Clash Display', sans-serif", color: "var(--warm-white)" }}
+            className="text-4xl md:text-6xl font-bold leading-tight mb-2 text-foreground"
+            style={{ fontFamily: "'Clash Display', sans-serif" }}
           >
             {project.title}
           </h1>
@@ -110,8 +110,8 @@ const ProjectDetail = () => {
                 href={project.viewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all hover:gap-3"
-                style={{ background: project.accent, color: "#0a0a0f" }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:gap-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.25),0_2px_6px_rgba(60,50,35,0.25)]"
+                style={{ background: project.accent, color: "#fff" }}
               >
                 Live Demo <ExternalLink className="w-3.5 h-3.5" />
               </a>
@@ -121,7 +121,7 @@ const ProjectDetail = () => {
                 href={project.codeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border border-white/20 text-muted-foreground hover:text-foreground hover:border-white/40 transition-all"
+                className="btn-tactile inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium text-foreground"
               >
                 <Github className="w-3.5 h-3.5" /> Code
               </a>
@@ -138,7 +138,7 @@ const ProjectDetail = () => {
               border: `1px solid ${project.accent}30`,
             }}
           />
-          <div className="relative rounded-xl overflow-hidden shadow-2xl">
+          <div className="relative rounded-xl overflow-hidden shadow-[var(--shadow-raised-hover)] border border-border">
             <img
               src={project.image}
               alt={project.title}
@@ -160,7 +160,7 @@ const ProjectDetail = () => {
         {/* Narrative: Problem / Solution / Impact */}
         <section className="grid md:grid-cols-3 gap-5 mb-12">
           {narrative.map((block) => (
-            <div key={block.label} className="glass-card p-6 rounded-2xl border border-white/[0.06]">
+            <div key={block.label} className="panel-raised p-6 rounded-2xl">
               <h2
                 className="text-sm font-bold uppercase tracking-[0.15em] mb-3"
                 style={{ color: project.accent }}
@@ -173,10 +173,10 @@ const ProjectDetail = () => {
         </section>
 
         {/* Meta */}
-        <section className="mb-16 grid sm:grid-cols-[160px_1fr] gap-4 border-t border-white/[0.06] pt-8">
+        <section className="mb-16 grid sm:grid-cols-[160px_1fr] gap-4 border-t border-border/60 pt-8">
           <div>
             <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/60 mb-1">Role</p>
-            <p className="text-sm text-[var(--warm-white)]">{project.role}</p>
+            <p className="text-sm text-foreground">{project.role}</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground/60 mb-2">Tech Stack</p>
@@ -184,7 +184,7 @@ const ProjectDetail = () => {
               {project.tech.map((t) => (
                 <span
                   key={t}
-                  className="text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-muted-foreground"
+                  className="label-plate text-xs px-3 py-1.5 rounded-full text-muted-foreground"
                 >
                   {t}
                 </span>
@@ -194,12 +194,12 @@ const ProjectDetail = () => {
         </section>
 
         {/* Prev / Next */}
-        <nav className="grid grid-cols-2 gap-4 border-t border-white/[0.06] pt-8">
+        <nav className="grid grid-cols-2 gap-4 border-t border-border/60 pt-8">
           <Link to={`/project/${prev.id}`} className="group flex flex-col gap-1 text-left">
             <span className="inline-flex items-center gap-1 text-xs text-muted-foreground/60">
               <ArrowLeft className="w-3 h-3" /> Prev
             </span>
-            <span className="text-sm font-medium text-[var(--warm-white)] group-hover:text-[var(--electric)] transition-colors">
+            <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
               {prev.title}
             </span>
           </Link>
@@ -207,7 +207,7 @@ const ProjectDetail = () => {
             <span className="inline-flex items-center gap-1 text-xs text-muted-foreground/60">
               Next <ArrowRight className="w-3 h-3" />
             </span>
-            <span className="text-sm font-medium text-[var(--warm-white)] group-hover:text-[var(--electric)] transition-colors">
+            <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
               {next.title}
             </span>
           </Link>

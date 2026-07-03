@@ -14,7 +14,7 @@ const timeline = [
     role: "Admin Operation",
     org: "PT Telkom Infrastruktur Indonesia",
     type: "work",
-    accent: "#818cf8",
+    accent: "#4f46e5",
     bullets: [
       "Managed Note-B incident ticket resolution end-to-end",
       "Ensured technician compliance with SLA targets",
@@ -26,7 +26,7 @@ const timeline = [
     role: "Informatics Teacher & Robotics Coach",
     org: "MAN Insan Cendekia Siak",
     type: "work",
-    accent: "#22d3ee",
+    accent: "#0e7490",
     bullets: [
       "Taught Informatics and developed teaching materials",
       "Mentored Coding & Robotics extracurricular programs",
@@ -38,7 +38,7 @@ const timeline = [
     role: "Intern – Network Support",
     org: "PT PLN Icon Plus, Batam",
     type: "work",
-    accent: "#34d399",
+    accent: "#047857",
     bullets: [
       "Installed, configured & troubleshot network infrastructure",
       "Deployed & maintained network solutions for clients",
@@ -50,7 +50,7 @@ const timeline = [
     role: "Electronics & Telecommunication Engineering",
     org: "Politeknik Caltex Riau",
     type: "edu",
-    accent: "#f59e0b",
+    accent: "#b45309",
     bullets: [
       "GPA 3.67/4.00 — Cum Laude",
       "Focus: Networking, IoT, Embedded Systems",
@@ -70,7 +70,7 @@ const TimelineSpine = () => (
     {/* Static dim track */}
     <line
       x1="1" y1="0" x2="1" y2="100%"
-      stroke="rgba(255,255,255,0.06)"
+      stroke="rgba(60,50,35,0.15)"
       strokeWidth="2"
     />
     {/* Animated draw line */}
@@ -82,10 +82,11 @@ const TimelineSpine = () => (
       strokeLinecap="round"
     />
     <defs>
+      {/* Rel tembaga */}
       <linearGradient id="spineGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
-        <stop offset="0%" stopColor="#818cf8" />
-        <stop offset="50%" stopColor="#22d3ee" />
-        <stop offset="100%" stopColor="#ec4899" />
+        <stop offset="0%" stopColor="#D97706" />
+        <stop offset="50%" stopColor="#B45309" />
+        <stop offset="100%" stopColor="#92400E" />
       </linearGradient>
     </defs>
   </svg>
@@ -115,8 +116,7 @@ const TimelineCard = ({
         className={`w-[calc(50%-3rem)] ${isLeft ? "text-right" : "text-left"}`}
       >
         <div
-          className="inline-block rounded-2xl p-5 border border-white/8 backdrop-blur-sm transition-all duration-300 hover:border-white/15"
-          style={{ background: "var(--surface-1)" }}
+          className="panel-raised panel-hoverable inline-block rounded-2xl p-5"
         >
           {/* Year + type badge */}
           <div
@@ -139,11 +139,8 @@ const TimelineCard = ({
           </div>
 
           <h3
-            className="text-lg font-bold leading-tight mb-0.5"
-            style={{
-              fontFamily: "'Clash Display', sans-serif",
-              color: "var(--warm-white)",
-            }}
+            className="text-lg font-bold leading-tight mb-0.5 text-foreground"
+            style={{ fontFamily: "'Clash Display', sans-serif" }}
           >
             {entry.role}
           </h3>
@@ -169,12 +166,11 @@ const TimelineCard = ({
 
       {/* Center dot */}
       <div className="relative flex-shrink-0 w-24 flex items-center justify-center mt-5">
+        {/* Rivet / kepala sekrup dengan ring accent */}
         <div
-          className="timeline-dot w-3.5 h-3.5 rounded-full border-2 z-10 relative"
+          className="timeline-dot screw w-3.5 h-3.5 z-10 relative"
           style={{
-            borderColor: entry.accent,
-            background: "var(--surface-0)",
-            boxShadow: `0 0 12px ${entry.accent}60`,
+            boxShadow: `0 0 0 2px ${entry.accent}55, inset 0 -1px 1px hsl(30 20% 20% / 0.4), 0 1px 1px hsl(0 0% 100% / 0.8)`,
           }}
         />
       </div>
@@ -204,17 +200,14 @@ const ExperienceMobile = () => (
           Journey
         </span>
         <h2
-          className="text-4xl font-bold"
-          style={{
-            fontFamily: "'Clash Display', sans-serif",
-            color: "var(--warm-white)",
-          }}
+          className="text-4xl font-bold text-foreground"
+          style={{ fontFamily: "'Clash Display', sans-serif" }}
         >
           Experience
         </h2>
       </motion.div>
 
-      <div className="relative pl-6 border-l border-white/10">
+      <div className="relative pl-6 border-l border-border">
         {timeline.map((entry, i) => (
           <motion.div
             key={i}
@@ -226,17 +219,11 @@ const ExperienceMobile = () => (
           >
             {/* Dot on border */}
             <div
-              className="absolute -left-[1.45rem] top-5 w-3 h-3 rounded-full border-2"
-              style={{
-                borderColor: entry.accent,
-                background: "var(--surface-0)",
-              }}
+              className="screw absolute -left-[1.45rem] top-5 w-3 h-3"
+              style={{ boxShadow: `0 0 0 2px ${entry.accent}55, inset 0 -1px 1px hsl(30 20% 20% / 0.4), 0 1px 1px hsl(0 0% 100% / 0.8)` }}
             />
 
-            <div
-              className="rounded-2xl p-4 border border-white/8"
-              style={{ background: "var(--surface-1)" }}
-            >
+            <div className="panel-raised rounded-2xl p-4">
               <div className="flex items-center gap-2 mb-2">
                 <span
                   className="text-xs font-medium tracking-widest uppercase px-2 py-0.5 rounded-full border"
@@ -253,11 +240,8 @@ const ExperienceMobile = () => (
                 </span>
               </div>
               <h3
-                className="text-base font-bold mb-0.5"
-                style={{
-                  fontFamily: "'Clash Display', sans-serif",
-                  color: "var(--warm-white)",
-                }}
+                className="text-base font-bold mb-0.5 text-foreground"
+                style={{ fontFamily: "'Clash Display', sans-serif" }}
               >
                 {entry.role}
               </h3>
@@ -382,8 +366,9 @@ const Experience = () => {
           fontFamily: "'Clash Display', sans-serif",
           fontSize: "clamp(8rem, 18vw, 18rem)",
           fontWeight: 700,
-          color: "transparent",
-          WebkitTextStroke: "1px rgba(255,255,255,0.03)",
+          color: "var(--surface-0)",
+          textShadow:
+            "-1px -1px 1px hsl(0 0% 100% / 0.9), 1px 1px 1px hsl(30 20% 20% / 0.16)",
           lineHeight: 1,
           whiteSpace: "nowrap",
         }}
@@ -398,11 +383,8 @@ const Experience = () => {
             Journey
           </span>
           <h2
-            className="text-6xl font-bold"
-            style={{
-              fontFamily: "'Clash Display', sans-serif",
-              color: "var(--warm-white)",
-            }}
+            className="text-6xl font-bold text-foreground"
+            style={{ fontFamily: "'Clash Display', sans-serif" }}
           >
             Experience
           </h2>

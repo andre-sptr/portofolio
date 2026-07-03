@@ -68,7 +68,7 @@ const Contact = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Let's <span className="text-gradient">Connect</span>
+            Let's <span className="text-primary">Connect</span>
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
             Have a project in mind or just want to say hello? I'd love to hear from you.
@@ -83,11 +83,11 @@ const Contact = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <div className="glass-card p-6 sm:p-8 rounded-2xl border-l-4 border-l-primary">
+            <div className="panel-raised stitched p-6 sm:p-8 rounded-2xl border-l-4 border-l-primary">
               <h3 className="text-xl sm:text-2xl font-bold mb-6">Get in Touch</h3>
               <div className="space-y-5">
                 <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+                  <div className="well-inset w-12 h-12 rounded-full flex items-center justify-center shrink-0">
                     <Mail className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -114,7 +114,7 @@ const Contact = () => {
                     key={index}
                     variant="outline"
                     size="lg"
-                    className={`rounded-full w-12 h-12 p-0 transition-all duration-300 ${social.hoverColor}`}
+                    className={`btn-tactile rounded-full w-12 h-12 p-0 ${social.hoverColor}`}
                     onClick={() => window.open(social.url, '_blank')}
                     aria-label={social.label}
                   >
@@ -130,7 +130,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-6 sm:p-8 rounded-2xl"
+            className="panel-raised p-6 sm:p-8 rounded-2xl"
           >
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -138,7 +138,7 @@ const Contact = () => {
                   <FormItem>
                     <FormLabel>Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your name" {...field} className="bg-muted/50 border-border focus:border-primary/50 text-base h-11" />
+                      <Input placeholder="Your name" {...field} className="well-inset rounded-lg border-0 focus-visible:ring-primary/40 text-base h-11" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -147,7 +147,7 @@ const Contact = () => {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="your@email.com" {...field} className="bg-muted/50 border-border focus:border-primary/50 text-base h-11" />
+                      <Input placeholder="your@email.com" {...field} className="well-inset rounded-lg border-0 focus-visible:ring-primary/40 text-base h-11" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -156,7 +156,7 @@ const Contact = () => {
                   <FormItem>
                     <FormLabel>Subject</FormLabel>
                     <FormControl>
-                      <Input placeholder="Project Inquiry" {...field} className="bg-muted/50 border-border focus:border-primary/50 text-base h-11" />
+                      <Input placeholder="Project Inquiry" {...field} className="well-inset rounded-lg border-0 focus-visible:ring-primary/40 text-base h-11" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -165,12 +165,12 @@ const Contact = () => {
                   <FormItem>
                     <FormLabel>Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="Tell me about your project..." className="min-h-[140px] bg-muted/50 border-border focus:border-primary/50 resize-none text-base" {...field} />
+                      <Textarea placeholder="Tell me about your project..." className="well-inset rounded-lg border-0 focus-visible:ring-primary/40 min-h-[140px] resize-none text-base" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )} />
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-base h-12 rounded-xl" disabled={isSubmitting || isSuccess}>
+                <Button type="submit" className="btn-tactile-primary w-full text-base h-12 rounded-xl" disabled={isSubmitting || isSuccess}>
                   {isSubmitting ? (
                     <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Sending...</>
                   ) : isSuccess ? (
