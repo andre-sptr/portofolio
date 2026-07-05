@@ -35,7 +35,7 @@ const TrustBar = () => {
             <span
               key={org}
               className="text-sm md:text-base font-medium text-muted-foreground/50 hover:text-[var(--warm-white)] transition-colors duration-500 tracking-wide cursor-default"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
+              style={{ fontFamily: "var(--font-display)" }}
             >
               {org}
             </span>

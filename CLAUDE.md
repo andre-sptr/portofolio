@@ -69,6 +69,14 @@ Repo ini **tidak punya test suite** (tidak ada Vitest/Jest dikonfigurasi).
 - Untuk verifikasi perubahan: jalankan `npm run lint` dan/atau `npm run build` pada file/area yang relevan; lakukan QA manual di browser dengan `npm run dev` bila menyangkut UI.
 - Jangan menambahkan framework test atau scaffolding test tanpa diminta.
 
+## Design System
+
+Baca `DESIGN.md` sebelum membuat keputusan visual/UI apa pun. Arah desain saat ini
+adalah **Operations Terminal** (phosphor amber di atas ink, monospace-native, chrome
+ala NOC). Semua pilihan font, warna, spacing, radius, dan motion didefinisikan di sana
+— jangan menyimpang tanpa persetujuan eksplisit user. Saat QA, tandai kode yang tidak
+sesuai `DESIGN.md`. Preview hidup: `public/design-preview.html`.
+
 ## Catatan lain
 
 - Jangan commit kecuali user secara eksplisit meminta.

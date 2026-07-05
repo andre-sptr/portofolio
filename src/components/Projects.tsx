@@ -42,7 +42,7 @@ const ProjectCard = ({ project }: { project: ProjectItem }) => (
       <div>
         <h3
           className="text-xl font-bold leading-tight"
-          style={{ fontFamily: "'Clash Display', sans-serif", color: "var(--warm-white)" }}
+          style={{ fontFamily: "var(--font-display)", color: "var(--warm-white)" }}
         >
           {project.title}
         </h3>
@@ -135,7 +135,7 @@ const Projects = () => (
         <span className="section-label mb-3 block">Selected Work</span>
         <h2
           className="text-3xl md:text-4xl font-bold leading-tight"
-          style={{ fontFamily: "'Clash Display', sans-serif", color: "var(--warm-white)" }}
+          style={{ fontFamily: "var(--font-display)", color: "var(--warm-white)" }}
         >
           Projects
         </h2>

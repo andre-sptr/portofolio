@@ -59,7 +59,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/debate-page.png",
     viewUrl: "https://debat.andresptr.site/",
     codeUrl: "",
-    accent: "#818cf8",
+    accent: "#F4B740",
     featured: true,
   },
   {
@@ -82,7 +82,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/reka-page.png",
     viewUrl: "",
     codeUrl: "https://github.com/andre-sptr/ai",
-    accent: "#22d3ee",
+    accent: "#5AC8E0",
     featured: true,
   },
   {
@@ -105,7 +105,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/fiscal-page.png",
     viewUrl: "",
     codeUrl: "https://github.com/andre-sptr/fiscal",
-    accent: "#34d399",
+    accent: "#3DDC84",
     featured: true,
   },
   {
@@ -129,7 +129,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/aet-page.png",
     viewUrl: "https://aetpcr.site/",
     codeUrl: "",
-    accent: "#6366f1",
+    accent: "#F4B740",
     featured: true,
   },
   {
@@ -153,7 +153,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/sitiket-page.png",
     viewUrl: "",
     codeUrl: "https://github.com/andre-sptr/sitiket",
-    accent: "#7c3aed",
+    accent: "#F4B740",
     featured: true,
   },
   {
@@ -177,7 +177,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/tiket-page.png",
     viewUrl: "https://sitiket.online/",
     codeUrl: "",
-    accent: "#0ea5e9",
+    accent: "#5AC8E0",
     featured: true,
   },
   {
@@ -201,7 +201,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/projects-page.png",
     viewUrl: "https://ed.tifsumbagteng.id/",
     codeUrl: "",
-    accent: "#2563eb",
+    accent: "#5AC8E0",
     featured: true,
   },
   {
@@ -225,7 +225,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/site-page.png",
     viewUrl: "https://class.sitiket.online/",
     codeUrl: "",
-    accent: "#3b82f6",
+    accent: "#5AC8E0",
     featured: true,
   },
   {
@@ -249,7 +249,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/sbtconnect-page.png",
     viewUrl: "https://sbtconnect.online/",
     codeUrl: "",
-    accent: "#38bdf8",
+    accent: "#5AC8E0",
     featured: true,
   },
   {
@@ -273,7 +273,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/getah-page.png",
     viewUrl: "https://sigetah.pocari.id/",
     codeUrl: "",
-    accent: "#22c55e",
+    accent: "#3DDC84",
     featured: true,
   },
   {
@@ -297,7 +297,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/rekapal-page.png",
     viewUrl: "https://rekapal.site/",
     codeUrl: "",
-    accent: "#84cc16",
+    accent: "#3DDC84",
     featured: true,
   },
   {
@@ -321,7 +321,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/snmb-page.png",
     viewUrl: "https://snmb.icsiak.sch.id/",
     codeUrl: "",
-    accent: "#3b82f6",
+    accent: "#5AC8E0",
     featured: true,
   },
   {
@@ -339,7 +339,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/binasiswa-page.png",
     viewUrl: "https://binasiswa.icsiak.sch.id/",
     codeUrl: "",
-    accent: "#34d399",
+    accent: "#3DDC84",
     featured: true,
   },
   {
@@ -363,7 +363,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/english-page.png",
     viewUrl: "https://englishhub.andresptr.site/",
     codeUrl: "",
-    accent: "#60a5fa",
+    accent: "#5AC8E0",
     featured: true,
   },
   {
@@ -381,7 +381,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/pdf-page.png",
     viewUrl: "https://pdf.andresptr.site/",
     codeUrl: "",
-    accent: "#ef4444",
+    accent: "#FF5C5C",
     featured: true,
   },
   {
@@ -399,7 +399,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/file-page.png",
     viewUrl: "https://file.andresptr.site/",
     codeUrl: "",
-    accent: "#22d3ee",
+    accent: "#5AC8E0",
     featured: true,
   },
   {
@@ -423,7 +423,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/tutorin-page.png",
     viewUrl: "https://tutorinbang.my.id/",
     codeUrl: "",
-    accent: "#f97316",
+    accent: "#F4B740",
     featured: true,
   },
   {
@@ -447,7 +447,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/novel-page.png",
     viewUrl: "https://novel.andresptr.site/",
     codeUrl: "",
-    accent: "#c084fc",
+    accent: "#F4B740",
     featured: true,
   },
   {
@@ -465,7 +465,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/iot-page.png",
     viewUrl: "",
     codeUrl: "",
-    accent: "#38bdf8",
+    accent: "#5AC8E0",
     featured: false,
   },
   {
@@ -483,7 +483,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/n8n-page.png",
     viewUrl: "",
     codeUrl: "",
-    accent: "#ec4899",
+    accent: "#FF5C5C",
     featured: false,
   },
   {
@@ -501,7 +501,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/eduforum-page.png",
     viewUrl: "",
     codeUrl: "",
-    accent: "#a78bfa",
+    accent: "#F4B740",
     featured: false,
   },
   {
@@ -519,7 +519,7 @@ export const projects: ProjectItem[] = [
     image: "/pages/aethernet-page.png",
     viewUrl: "",
     codeUrl: "",
-    accent: "#06b6d4",
+    accent: "#5AC8E0",
     featured: false,
   },
 ];

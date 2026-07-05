@@ -147,7 +147,7 @@ const Navigation = () => {
     <>
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-primary to-secondary origin-left z-[100]"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-primary origin-left z-[100]"
         style={{ scaleX }}
       />
 
@@ -161,11 +161,11 @@ const Navigation = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a href="/" className="flex items-center gap-2.5 group">
-              <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white font-bold text-lg overflow-hidden group-hover:shadow-[var(--glow-primary)] transition-shadow duration-300">
+              <div className="relative w-9 h-9 rounded-[3px] bg-primary flex items-center justify-center text-primary-foreground font-mono font-bold text-lg overflow-hidden transition-shadow duration-300">
                 <span className="relative z-10">A</span>
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-white/15 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </div>
-              <span className="font-bold text-lg sm:text-xl tracking-tight">
+              <span className="font-mono font-bold text-lg sm:text-xl tracking-tight">
                 Andre<span className="text-primary">.dev</span>
               </span>
             </a>

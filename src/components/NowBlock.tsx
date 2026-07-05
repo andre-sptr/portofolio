@@ -48,7 +48,7 @@ const NowBlock = () => {
             </p>
             <h2
               className="text-3xl md:text-4xl font-bold text-[var(--warm-white)] leading-[0.95]"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
+              style={{ fontFamily: "var(--font-display)" }}
             >
               What I&apos;m <span className="text-gradient">up to</span>
             </h2>

@@ -17,7 +17,7 @@ const Signature = () => {
 `;
 
     const styles = {
-      art: "color:#818cf8;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.1;",
+      art: "color:#F4B740;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.1;",
       hi: "color:#000;font-size:14px;font-weight:600;",
       label: "color:#7c6df2;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;",
       value: "color:#b0b0bc;font-size:12px;",

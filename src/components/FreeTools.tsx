@@ -15,7 +15,7 @@ const tools = [
     description: "Secure and reliable file hosting solution for all your storage needs.",
     url: "https://file.andresptr.site",
     icon: CloudUpload,
-    accent: "from-secondary/10 to-secondary/5",
+    accent: "from-primary/10 to-primary/5",
     isImage: false,
   },
   {
@@ -74,7 +74,7 @@ const FreeTools = () => {
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${tool.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
                 <div className="relative z-10">
-                  <div className={`${isLarge ? "w-16 h-16" : "w-14 h-14"} rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:shadow-[var(--glow-primary)] group-hover:scale-105`}>
+                  <div className={`${isLarge ? "w-16 h-16" : "w-14 h-14"} rounded-[6px] bg-primary/10 flex items-center justify-center mb-5 transition-all duration-300 group-hover:shadow-[var(--glow-primary)] group-hover:scale-105`}>
                     <ToolIcon className={`${isLarge ? "w-8 h-8" : "w-7 h-7"} text-primary`} />
                   </div>
                   <div className="flex items-start justify-between gap-3">

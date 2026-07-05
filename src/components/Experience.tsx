@@ -14,7 +14,7 @@ const timeline = [
     role: "Admin Operation",
     org: "PT Telkom Infrastruktur Indonesia",
     type: "work",
-    accent: "#818cf8",
+    accent: "#F4B740",
     bullets: [
       "Managed Note-B incident ticket resolution end-to-end",
       "Ensured technician compliance with SLA targets",
@@ -26,7 +26,7 @@ const timeline = [
     role: "Informatics Teacher & Robotics Coach",
     org: "MAN Insan Cendekia Siak",
     type: "work",
-    accent: "#22d3ee",
+    accent: "#5AC8E0",
     bullets: [
       "Taught Informatics and developed teaching materials",
       "Mentored Coding & Robotics extracurricular programs",
@@ -38,7 +38,7 @@ const timeline = [
     role: "Intern – Network Support",
     org: "PT PLN Icon Plus, Batam",
     type: "work",
-    accent: "#34d399",
+    accent: "#3DDC84",
     bullets: [
       "Installed, configured & troubleshot network infrastructure",
       "Deployed & maintained network solutions for clients",
@@ -50,7 +50,7 @@ const timeline = [
     role: "Electronics & Telecommunication Engineering",
     org: "Politeknik Caltex Riau",
     type: "edu",
-    accent: "#f59e0b",
+    accent: "#F4B740",
     bullets: [
       "GPA 3.67/4.00 — Cum Laude",
       "Focus: Networking, IoT, Embedded Systems",
@@ -83,9 +83,9 @@ const TimelineSpine = () => (
     />
     <defs>
       <linearGradient id="spineGrad" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
-        <stop offset="0%" stopColor="#818cf8" />
-        <stop offset="50%" stopColor="#22d3ee" />
-        <stop offset="100%" stopColor="#ec4899" />
+        <stop offset="0%" stopColor="#F4B740" />
+        <stop offset="50%" stopColor="#5AC8E0" />
+        <stop offset="100%" stopColor="#FF5C5C" />
       </linearGradient>
     </defs>
   </svg>
@@ -141,7 +141,7 @@ const TimelineCard = ({
           <h3
             className="text-lg font-bold leading-tight mb-0.5"
             style={{
-              fontFamily: "'Clash Display', sans-serif",
+              fontFamily: "var(--font-display)",
               color: "var(--warm-white)",
             }}
           >
@@ -206,7 +206,7 @@ const ExperienceMobile = () => (
         <h2
           className="text-4xl font-bold"
           style={{
-            fontFamily: "'Clash Display', sans-serif",
+            fontFamily: "var(--font-display)",
             color: "var(--warm-white)",
           }}
         >
@@ -255,7 +255,7 @@ const ExperienceMobile = () => (
               <h3
                 className="text-base font-bold mb-0.5"
                 style={{
-                  fontFamily: "'Clash Display', sans-serif",
+                  fontFamily: "var(--font-display)",
                   color: "var(--warm-white)",
                 }}
               >
@@ -379,7 +379,7 @@ const Experience = () => {
       <div
         className="exp-watermark absolute inset-x-0 top-0 flex items-center justify-center pointer-events-none select-none"
         style={{
-          fontFamily: "'Clash Display', sans-serif",
+          fontFamily: "var(--font-display)",
           fontSize: "clamp(8rem, 18vw, 18rem)",
           fontWeight: 700,
           color: "transparent",
@@ -400,7 +400,7 @@ const Experience = () => {
           <h2
             className="text-6xl font-bold"
             style={{
-              fontFamily: "'Clash Display', sans-serif",
+              fontFamily: "var(--font-display)",
               color: "var(--warm-white)",
             }}
           >

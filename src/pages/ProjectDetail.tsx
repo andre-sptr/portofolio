@@ -84,7 +84,7 @@ const ProjectDetail = () => {
           <div className="flex items-center gap-3 mb-4">
             <span
               className="text-5xl font-bold opacity-20 leading-none select-none"
-              style={{ fontFamily: "'Clash Display', sans-serif", color: project.accent }}
+              style={{ fontFamily: "var(--font-display)", color: project.accent }}
             >
               {project.num}
             </span>
@@ -97,7 +97,7 @@ const ProjectDetail = () => {
           </div>
           <h1
             className="text-4xl md:text-6xl font-bold leading-tight mb-2"
-            style={{ fontFamily: "'Clash Display', sans-serif", color: "var(--warm-white)" }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--warm-white)" }}
           >
             {project.title}
           </h1>

@@ -17,7 +17,6 @@ import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/motion/gsap";
 import portraitImage from "/andre-saputra.png";
 import { projects, type ProjectItem } from "@/data/projects";
-import ThreeScene, { scrollProgressRef } from "./ThreeScene";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -91,9 +90,6 @@ const Hero = () => {
           start: "top top",
           end: "bottom top",
           scrub: 1.2,
-          onUpdate: (self) => {
-            scrollProgressRef.current = self.progress;
-          },
         },
       });
 
@@ -117,13 +113,7 @@ const Hero = () => {
       id="hero"
       aria-label="Introduction"
     >
-      {!isMobile ? (
-        <div className="absolute inset-0 -z-10 overflow-hidden opacity-55">
-          <ThreeScene scrollEnabled={!prefersReduced} isMobile={false} />
-        </div>
-      ) : (
-        <div className="absolute inset-0 -z-10 mobile-bg-gradient" />
-      )}
+      <div className="absolute inset-0 -z-10 mobile-bg-gradient" />
 
       <div className="command-center-grid pointer-events-none absolute inset-0 z-0" />
       <div className="grain pointer-events-none" />

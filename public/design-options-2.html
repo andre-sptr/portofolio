@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Redesign options — illustrative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Caveat:wght@600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', system-ui, sans-serif; }
+  .opt { min-height: 96vh; padding: clamp(30px,6vh,64px) clamp(24px,6vw,88px); position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: center; overflow: hidden; }
+  .opt .col-txt { position: relative; z-index: 3; max-width: 560px; }
+  .opt .col-art { position: relative; z-index: 2; display: flex; align-items: center; justify-content: center; }
+  .opt svg { width: 100%; max-width: 520px; height: auto; }
+  .tag { position: absolute; top: 18px; left: 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 11px; border-radius: 100px; z-index: 6; }
+  .cta { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; text-decoration: none; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+  @media (max-width: 820px) { .opt { grid-template-columns: 1fr; } .opt .col-art { order: -1; } }
+
+  /* ── Option 5 — Isometric vector ── */
+  #opt5 { background: #edf1f8; color: #17223b; }
+  #opt5 .tag { background: #17223b; color: #edf1f8; }
+  #opt5 .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #4f46e5; margin-bottom: 20px; }
+  #opt5 .name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(2.8rem,6vw,4.8rem); line-height: 0.98; letter-spacing: -0.02em; }
+  #opt5 .name .hl { color: #14b8a6; }
+  #opt5 .lede { font-size: 1.08rem; line-height: 1.6; color: #56617a; margin-top: 20px; }
+  #opt5 .lede b { color: #17223b; font-weight: 700; }
+  #opt5 .btn-a { background: #4f46e5; color: #fff; padding: 13px 24px; border-radius: 12px; font-weight: 700; font-size: 15px; }
+  #opt5 .btn-b { background: #fff; border: 1.5px solid #cdd6e6; color: #17223b; padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 15px; }
+
+  /* ── Option 6 — Hand-drawn doodle ── */
+  #opt6 { background: #fbf8ef; color: #21304a; background-image: radial-gradient(#dfe6d8 1px, transparent 1px); background-size: 26px 26px; }
+  #opt6 .tag { background: #ef5b43; color: #fff; }
+  #opt6 .eyebrow { font-family: 'Caveat', cursive; font-size: 1.5rem; color: #ef5b43; margin-bottom: 8px; }
+  #opt6 .name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(2.8rem,6vw,4.8rem); line-height: 1.0; letter-spacing: -0.02em; position: relative; }
+  #opt6 .name .mark { background: linear-gradient(180deg, transparent 58%, #ffe14d 58%, #ffe14d 92%, transparent 92%); padding: 0 4px; }
+  #opt6 .lede { font-size: 1.08rem; line-height: 1.6; color: #55617a; margin-top: 18px; }
+  #opt6 .lede b { color: #21304a; font-weight: 700; }
+  #opt6 .note { font-family: 'Caveat', cursive; font-size: 1.35rem; color: #6b7787; margin-top: 14px; }
+  #opt6 .btn-a { background: #21304a; color: #fbf8ef; padding: 13px 24px; border-radius: 14px; font-weight: 700; font-size: 15px; box-shadow: 3px 3px 0 #ef5b43; }
+  #opt6 .btn-b { background: #fff; border: 2px solid #21304a; color: #21304a; padding: 13px 24px; border-radius: 14px; font-weight: 700; font-size: 15px; }
+
+  /* ── Option 7 — Flat character ── */
+  #opt7 { background: #eafaf1; color: #1b2a24; }
+  #opt7 .tag { background: #12b56a; color: #fff; }
+  #opt7 .eyebrow { display: inline-block; background: #1b2a24; color: #eafaf1; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 13px; border-radius: 100px; margin-bottom: 20px; }
+  #opt7 .name { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: clamp(2.8rem,6vw,4.7rem); line-height: 0.98; letter-spacing: -0.02em; }
+  #opt7 .name .hl { color: #12b56a; }
+  #opt7 .lede { font-size: 1.08rem; line-height: 1.6; color: #4c5c53; margin-top: 20px; font-weight: 500; }
+  #opt7 .lede b { color: #1b2a24; font-weight: 700; }
+  #opt7 .btn-a { background: #ff7a4d; color: #fff; padding: 14px 26px; border-radius: 100px; font-weight: 700; font-size: 15px; }
+  #opt7 .btn-b { background: #fff; border: 2px solid #1b2a24; color: #1b2a24; padding: 14px 26px; border-radius: 100px; font-weight: 700; font-size: 15px; }
+
+  /* ── Option 8 — Riso grain duotone ── */
+  #opt8 { background: #f2e9d6; color: #24304d; }
+  #opt8 .tag { background: #ff6a53; color: #fff; }
+  #opt8 .eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #ff6a53; margin-bottom: 18px; }
+  #opt8 .name { font-family: 'Fraunces', serif; font-weight: 600; font-size: clamp(2.9rem,6.4vw,5.2rem); line-height: 0.98; letter-spacing: -0.01em; }
+  #opt8 .name .hl { color: #ff6a53; }
+  #opt8 .lede { font-size: 1.08rem; line-height: 1.65; color: #4a5570; margin-top: 20px; }
+  #opt8 .lede b { color: #24304d; font-weight: 700; }
+  #opt8 .btn-a { background: #24304d; color: #f2e9d6; padding: 13px 26px; border-radius: 6px; font-weight: 700; font-size: 15px; }
+  #opt8 .btn-b { background: transparent; border: 1.5px solid #24304d; color: #24304d; padding: 13px 26px; border-radius: 6px; font-weight: 600; font-size: 15px; }
+</style>
+</head>
+<body>
+
+  <!-- OPTION 5 — Isometric vector -->
+  <section id="opt5" class="opt">
+    <div class="tag">Option 5 · Isometric vector</div>
+    <div class="col-txt">
+      <div class="eyebrow">Network operations · AI · IoT</div>
+      <h1 class="name">Andre Saputra builds the <span class="hl">infrastructure</span>.</h1>
+      <p class="lede">Web apps, AI tools, and IoT telemetry for telecom systems. Currently at <b>PT Telkom Infrastruktur Indonesia</b>.</p>
+      <div class="row"><a class="cta btn-a">View projects →</a><a class="cta btn-b">Download CV</a></div>
+    </div>
+    <div class="col-art">
+      <svg viewBox="0 0 520 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Isometric network illustration">
+        <ellipse cx="250" cy="360" rx="150" ry="34" fill="#24304d" opacity="0.06"/>
+        <ellipse cx="110" cy="330" rx="42" ry="12" fill="#24304d" opacity="0.06"/>
+        <ellipse cx="415" cy="180" rx="42" ry="12" fill="#24304d" opacity="0.06"/>
+        <!-- cloud -->
+        <g fill="#cbd5e1"><circle cx="95" cy="95" r="24"/><circle cx="125" cy="82" r="30"/><circle cx="158" cy="98" r="22"/><rect x="95" y="95" width="63" height="26" rx="13"/></g>
+        <!-- connectors -->
+        <path d="M250 150 L415 150" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 7" fill="none"/>
+        <path d="M186 250 L120 300" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 7" fill="none"/>
+        <path d="M250 150 L128 108" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6 7" fill="none"/>
+        <!-- server tower (3 stacked iso boxes) -->
+        <!-- bottom -->
+        <polygon points="186,250 250,282 250,322 186,290" fill="#0e9c90"/>
+        <polygon points="250,282 314,250 314,290 250,322" fill="#0b7d74"/>
+        <polygon points="186,250 250,218 314,250 250,282" fill="#14c4b4"/>
+        <!-- middle -->
+        <polygon points="186,210 250,242 250,282 186,250" fill="#0e9c90"/>
+        <polygon points="250,242 314,210 314,250 250,282" fill="#0b7d74"/>
+        <polygon points="186,210 250,178 314,210 250,242" fill="#14c4b4"/>
+        <!-- top -->
+        <polygon points="186,170 250,202 250,242 186,210" fill="#0e9c90"/>
+        <polygon points="250,202 314,170 314,210 250,242" fill="#0b7d74"/>
+        <polygon points="186,170 250,138 314,170 250,202" fill="#14c4b4"/>
+        <!-- rack LEDs -->
+        <circle cx="205" cy="232" r="4" fill="#fbbf24"/><circle cx="205" cy="192" r="4" fill="#fbbf24"/><circle cx="205" cy="272" r="4" fill="#fbbf24"/>
+        <!-- IoT cube indigo (top right) -->
+        <polygon points="380,140 410,155 410,177 380,162" fill="#4f46e5"/>
+        <polygon points="410,155 440,140 440,162 410,177" fill="#3f37c9"/>
+        <polygon points="380,140 410,125 440,140 410,155" fill="#6d67f0"/>
+        <!-- IoT cube coral (bottom left) -->
+        <polygon points="80,300 110,315 110,337 80,322" fill="#fb7185"/>
+        <polygon points="110,315 140,300 140,322 110,337" fill="#e04f66"/>
+        <polygon points="80,300 110,285 140,300 110,315" fill="#fd94a3"/>
+        <!-- floating dots -->
+        <circle cx="440" cy="300" r="6" fill="#14b8a6"/><circle cx="70" cy="180" r="5" fill="#4f46e5"/><circle cx="360" cy="360" r="5" fill="#fb7185"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- OPTION 6 — Hand-drawn doodle -->
+  <section id="opt6" class="opt">
+    <div class="tag">Option 6 · Hand-drawn</div>
+    <div class="col-txt">
+      <div class="eyebrow">full stack · network · iot ✎</div>
+      <h1 class="name">Andre Saputra —<br />I wire up <span class="mark">systems</span>.</h1>
+      <p class="lede">Web apps, AI tools, and IoT systems for telecom infrastructure. Currently at <b>PT Telkom Infrastruktur Indonesia</b>.</p>
+      <p class="note">// shipping from Riau, Indonesia →</p>
+      <div class="row"><a class="cta btn-a">View projects →</a><a class="cta btn-b">Download CV</a></div>
+    </div>
+    <div class="col-art">
+      <svg viewBox="0 0 500 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hand-drawn network doodle" fill="none" stroke="#21304a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <!-- cloud -->
+        <path d="M150 92 q-6 -30 24 -30 q10 -22 36 -12 q22 -14 34 12 q28 -2 20 30 q10 16 -8 24 l-96 0 q-22 -2 -10 -24 z"/>
+        <!-- server box -->
+        <rect x="205" y="150" width="90" height="70" rx="8"/>
+        <line x1="205" y1="174" x2="295" y2="174"/><line x1="205" y1="196" x2="295" y2="196"/>
+        <circle cx="222" cy="162" r="4" fill="#ef5b43" stroke="none"/>
+        <circle cx="222" cy="185" r="4" fill="#ffe14d" stroke="none"/>
+        <!-- nodes -->
+        <circle cx="110" cy="300" r="26"/><circle cx="250" cy="330" r="26"/><circle cx="390" cy="290" r="26"/>
+        <!-- sensor with antenna -->
+        <rect x="350" y="130" width="60" height="42" rx="6"/><line x1="380" y1="130" x2="380" y2="104"/><circle cx="380" cy="100" r="5" fill="#ef5b43" stroke="none"/>
+        <!-- connections dashed -->
+        <path d="M205 205 C 170 250, 140 270, 118 276" stroke-dasharray="2 9"/>
+        <path d="M250 220 L250 304" stroke-dasharray="2 9"/>
+        <path d="M295 200 C 340 230, 372 255, 388 264" stroke-dasharray="2 9"/>
+        <path d="M250 150 C 210 120, 180 100, 168 96" stroke-dasharray="2 9"/>
+        <path d="M350 150 L305 168" stroke-dasharray="2 9"/>
+        <!-- hand-drawn arrow + label -->
+        <path d="M430 360 C 410 330, 420 320, 412 306" stroke="#ef5b43"/>
+        <path d="M412 306 l 12 8 M412 306 l -3 14" stroke="#ef5b43"/>
+        <text x="405" y="386" font-family="Caveat, cursive" font-size="24" fill="#ef5b43" stroke="none">telecom node</text>
+        <!-- scribble underline under nothing, decorative -->
+        <path d="M70 360 q40 12 90 0" stroke="#ffcf33" stroke-width="8" opacity="0.7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- OPTION 7 — Flat character -->
+  <section id="opt7" class="opt">
+    <div class="tag">Option 7 · Flat character</div>
+    <div class="col-txt">
+      <div class="eyebrow">● Full stack · IoT · AI</div>
+      <h1 class="name">Hi, I'm Andre — I make ideas <span class="hl">work</span>.</h1>
+      <p class="lede">Web apps, AI tools, and IoT systems for telecom infrastructure. Currently at <b>PT Telkom Infrastruktur Indonesia</b>.</p>
+      <div class="row"><a class="cta btn-a">View projects →</a><a class="cta btn-b">Download CV</a></div>
+    </div>
+    <div class="col-art">
+      <svg viewBox="0 0 500 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Flat illustration of a developer at a desk">
+        <circle cx="250" cy="220" r="180" fill="#bfe6cf"/>
+        <!-- floating cards -->
+        <g>
+          <rect x="60" y="90" width="86" height="60" rx="12" fill="#fff"/><rect x="72" y="104" width="40" height="8" rx="4" fill="#12b56a"/><rect x="72" y="120" width="60" height="7" rx="3.5" fill="#cbd5cf"/><rect x="72" y="133" width="48" height="7" rx="3.5" fill="#cbd5cf"/>
+          <rect x="372" y="70" width="76" height="76" rx="16" fill="#ff7a4d"/><path d="M400 108 h20 M410 98 v20" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="410" cy="300" r="30" fill="#4f7cff"/><path d="M398 300 l8 8 l16 -16" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <!-- desk -->
+        <rect x="120" y="352" width="260" height="16" rx="8" fill="#e0a273"/>
+        <!-- plant -->
+        <rect x="140" y="318" width="26" height="34" rx="4" fill="#ff7a4d"/><path d="M153 318 C 140 296, 146 286, 153 282 C 160 286, 166 296, 153 318" fill="#12b56a"/><path d="M153 318 C 170 300, 176 292, 182 292 C 180 306, 168 316, 153 320" fill="#0f9a5b"/>
+        <!-- person -->
+        <rect x="292" y="300" width="86" height="58" rx="16" fill="#4f7cff"/>  <!-- body -->
+        <circle cx="335" cy="268" r="30" fill="#f0c9a8"/>            <!-- head -->
+        <path d="M306 262 q4 -34 34 -32 q28 2 26 30 q-14 -14 -30 -12 q-18 -2 -30 14 z" fill="#2b2b3a"/> <!-- hair -->
+        <rect x="322" y="330" width="12" height="26" fill="#f0c9a8"/> <!-- arm hint -->
+        <!-- laptop -->
+        <rect x="196" y="326" width="86" height="52" rx="6" fill="#2b2b3a"/><rect x="204" y="334" width="70" height="36" rx="3" fill="#3a3a4d"/><rect x="210" y="341" width="34" height="5" rx="2.5" fill="#12b56a"/><rect x="210" y="351" width="50" height="5" rx="2.5" fill="#6b7280"/><rect x="188" y="376" width="102" height="7" rx="3.5" fill="#1f1f2b"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- OPTION 8 — Riso grain duotone -->
+  <section id="opt8" class="opt">
+    <div class="tag">Option 8 · Riso grain</div>
+    <div class="col-txt">
+      <div class="eyebrow">Network · AI · IoT systems</div>
+      <h1 class="name">Andre Saputra,<br />builder of <span class="hl">quiet</span> machines.</h1>
+      <p class="lede">Production web apps, AI tools, and IoT systems for telecom infrastructure. Currently building at <b>PT Telkom Infrastruktur Indonesia</b>.</p>
+      <div class="row"><a class="cta btn-a">View projects →</a><a class="cta btn-b">Download CV</a></div>
+    </div>
+    <div class="col-art">
+      <svg viewBox="0 0 500 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Riso-style duotone abstract illustration">
+        <!-- sun (with misregistration) -->
+        <circle cx="270" cy="150" r="92" fill="#ff6a53" opacity="0.9"/>
+        <circle cx="262" cy="146" r="92" fill="#24304d" opacity="0.14"/>
+        <!-- back hills navy -->
+        <path d="M0 300 C 120 250, 200 300, 300 275 C 400 250, 460 300, 500 285 L500 460 L0 460 Z" fill="#24304d"/>
+        <!-- front hill coral offset -->
+        <path d="M0 350 C 130 315, 230 360, 330 335 C 420 313, 470 350, 500 342 L500 460 L0 460 Z" fill="#ff6a53" opacity="0.92"/>
+        <path d="M6 356 C 136 321, 236 366, 336 341 C 426 319, 476 356, 506 348 L506 460 L6 460 Z" fill="#24304d" opacity="0.12"/>
+        <!-- signal tower -->
+        <path d="M120 300 L108 210 L132 210 Z" fill="#f2e9d6"/>
+        <line x1="120" y1="210" x2="120" y2="150" stroke="#f2e9d6" stroke-width="5" stroke-linecap="round"/>
+        <path d="M104 165 a24 24 0 0 1 32 0 M96 150 a36 36 0 0 1 48 0" fill="none" stroke="#f2e9d6" stroke-width="4" stroke-linecap="round"/>
+        <!-- circuit dots -->
+        <g fill="#f2e9d6"><circle cx="400" cy="380" r="6"/><circle cx="430" cy="380" r="6"/><circle cx="415" cy="405" r="6"/></g>
+        <line x1="400" y1="380" x2="430" y2="380" stroke="#f2e9d6" stroke-width="3"/><line x1="415" y1="380" x2="415" y2="405" stroke="#f2e9d6" stroke-width="3"/>
+      </svg>
+    </div>
+  </section>
+
+</body>
+</html>

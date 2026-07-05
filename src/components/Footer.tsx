@@ -21,10 +21,10 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <a href="#" className="flex items-center gap-2.5 mb-4 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white font-bold text-sm">
+              <div className="w-8 h-8 rounded-[3px] bg-primary flex items-center justify-center text-primary-foreground font-mono font-bold text-sm">
                 A
               </div>
-              <span className="font-bold text-lg tracking-tight">
+              <span className="font-mono font-bold text-lg tracking-tight">
                 Andre<span className="text-primary">.dev</span>
               </span>
             </a>

@@ -33,7 +33,7 @@ export const experiments: ExperimentItem[] = [
     interaction: "Drag chips, change gravity, pause, and reset the field.",
     status: "live",
     route: "/lab?experiment=falling-stack",
-    accent: "#84cc16",
+    accent: "#3DDC84",
     reducedMotionFallback: "Categorized skill chips with no physics simulation.",
   },
   {
@@ -45,7 +45,7 @@ export const experiments: ExperimentItem[] = [
     interaction: "Open, toss, and sort project cards.",
     status: "concept",
     route: "/lab?experiment=project-collision-wall",
-    accent: "#818cf8",
+    accent: "#F4B740",
     reducedMotionFallback: "Static project archive grid.",
   },
   {
@@ -57,7 +57,7 @@ export const experiments: ExperimentItem[] = [
     interaction: "Drag nodes and watch edge tension update.",
     status: "concept",
     route: "/lab?experiment=network-topology",
-    accent: "#22d3ee",
+    accent: "#5AC8E0",
     reducedMotionFallback: "Static topology diagram.",
   },
   {
@@ -69,7 +69,7 @@ export const experiments: ExperimentItem[] = [
     interaction: "Select stance and watch agents exchange signals.",
     status: "concept",
     route: "/lab?experiment=ai-debate-field",
-    accent: "#a78bfa",
+    accent: "#F4B740",
     reducedMotionFallback: "Static agent relationship diagram.",
   },
   {
@@ -81,7 +81,7 @@ export const experiments: ExperimentItem[] = [
     interaction: "Trigger sensors and inspect packet paths.",
     status: "concept",
     route: "/lab?experiment=iot-signal-field",
-    accent: "#34d399",
+    accent: "#3DDC84",
     reducedMotionFallback: "Static sensor grid.",
   },
   {
@@ -93,7 +93,7 @@ export const experiments: ExperimentItem[] = [
     interaction: "Adjust category weights and watch clusters rebalance.",
     status: "concept",
     route: "/lab?experiment=fiscal-gravity",
-    accent: "#f59e0b",
+    accent: "#F4B740",
     reducedMotionFallback: "Static weighted category chart.",
   },
 ];

@@ -145,10 +145,10 @@ function PanelWhoIAm() {
         <span
           style={{
             fontSize: "clamp(6rem,18vw,18rem)",
-            fontFamily: "Clash Display, sans-serif",
+            fontFamily: "var(--font-display)",
             fontWeight: 700,
             color: "transparent",
-            WebkitTextStroke: "1px rgba(99,102,241,0.06)",
+            WebkitTextStroke: "1px rgba(244,183,64,0.05)",
             letterSpacing: "-0.04em",
             whiteSpace: "nowrap",
           }}
@@ -162,7 +162,7 @@ function PanelWhoIAm() {
         <p className="section-label mb-5">01 / About</p>
         <h2
           className="text-4xl md:text-5xl font-bold text-[var(--warm-white)] mb-6 leading-[0.95]"
-          style={{ fontFamily: "Clash Display, sans-serif" }}
+          style={{ fontFamily: "var(--font-display)" }}
         >
           The person<br />
           <span className="text-gradient">behind the code</span>
@@ -205,7 +205,7 @@ function PanelJourney({ cardsRef }: { cardsRef: React.RefObject<HTMLDivElement> 
           <p className="section-label mb-3">02 / Journey</p>
           <h2
             className="text-3xl md:text-4xl font-bold text-[var(--warm-white)] leading-[0.95]"
-            style={{ fontFamily: "Clash Display, sans-serif" }}
+            style={{ fontFamily: "var(--font-display)" }}
           >
             Where<br />I've<br />been
           </h2>
@@ -257,7 +257,7 @@ function PanelStack() {
           <p className="section-label mb-3">03 / Stack</p>
           <h2
             className="text-3xl md:text-4xl font-bold text-[var(--warm-white)] leading-[0.95] mb-4"
-            style={{ fontFamily: "Clash Display, sans-serif" }}
+            style={{ fontFamily: "var(--font-display)" }}
           >
             Tools I<br />live with
           </h2>
@@ -296,7 +296,7 @@ function AboutMobile() {
         {/* Who */}
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <p className="section-label mb-3">01 / About</p>
-          <h2 className="text-3xl font-bold text-[var(--warm-white)] mb-4 leading-tight" style={{ fontFamily: "Clash Display, sans-serif" }}>
+          <h2 className="text-3xl font-bold text-[var(--warm-white)] mb-4 leading-tight" style={{ fontFamily: "var(--font-display)" }}>
             The person<br /><span className="text-gradient">behind the code</span>
           </h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
@@ -316,7 +316,7 @@ function AboutMobile() {
         {/* Journey */}
         <div>
           <p className="section-label mb-3">02 / Journey</p>
-          <h3 className="text-2xl font-bold text-[var(--warm-white)] mb-6" style={{ fontFamily: "Clash Display, sans-serif" }}>Where I've been</h3>
+          <h3 className="text-2xl font-bold text-[var(--warm-white)] mb-6" style={{ fontFamily: "var(--font-display)" }}>Where I've been</h3>
           <div className="space-y-3">
             {EXPERIENCES.map((exp, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
@@ -335,7 +335,7 @@ function AboutMobile() {
         {/* Stack */}
         <div>
           <p className="section-label mb-3">03 / Stack</p>
-          <h3 className="text-2xl font-bold text-[var(--warm-white)] mb-4" style={{ fontFamily: "Clash Display, sans-serif" }}>Tools I live with</h3>
+          <h3 className="text-2xl font-bold text-[var(--warm-white)] mb-4" style={{ fontFamily: "var(--font-display)" }}>Tools I live with</h3>
           <div className="flex flex-wrap gap-2">
             {ORBIT_RINGS.flatMap((r) => r.items).map((item) => (
               <span key={item.label} className="px-3 py-1.5 rounded-lg bg-[var(--surface-1)] border border-white/[0.07] text-xs font-medium text-muted-foreground">
